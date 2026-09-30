@@ -106,6 +106,7 @@ textarea{min-height:130px;line-height:1.7}
 .tip{color:#708d88;font-size:13px;line-height:1.7}
 .progress-box{margin-top:18px;background:#e5f3f0;border-radius:999px;height:9px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--blue));transition:.35s}
 .ai-note{margin-top:18px;padding:15px 17px;border-radius:15px;background:#f0f8ff;border:1px dashed rgba(22,135,232,.3);color:#56716e;font-size:13px;line-height:1.8}
+.contact-types{display:flex;flex-wrap:wrap;gap:9px}.contact-option{position:relative}.contact-option input{position:absolute;opacity:0;pointer-events:none}.contact-option label{display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border-radius:12px;border:1px solid rgba(8,127,102,.18);background:rgba(255,255,255,.82);color:#426d67;font-weight:700;cursor:pointer;transition:.2s}.contact-option label:before{content:"";width:15px;height:15px;border:1.5px solid #8aa7a2;border-radius:4px;background:#fff}.contact-option input:checked+label{border-color:#0ca77f;background:#e7f8f3;color:#087f66;box-shadow:0 0 0 3px rgba(12,167,127,.08)}.contact-option input:checked+label:before{content:"✓";display:grid;place-items:center;background:#0ca77f;border-color:#0ca77f;color:#fff;font-size:11px}.import-box{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:14px 16px;border-radius:16px;background:linear-gradient(135deg,#f3fbff,#eefaf7);border:1px dashed rgba(22,135,232,.25)}.import-box .btn{padding:10px 14px;font-size:13px}.import-hint{font-size:12px;color:#718c88;line-height:1.6}.json-preview{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:13px;line-height:1.65}
 footer{padding:55px 18px 75px;text-align:center;color:#75918d}
 .footer-title{font-size:25px;font-weight:900;color:var(--green);margin-bottom:8px}
 .toast{position:fixed;z-index:100;left:50%;bottom:25px;transform:translate(-50%,25px);opacity:0;pointer-events:none;background:#103e38;color:#fff;padding:14px 18px;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.18);transition:.3s;max-width:calc(100% - 28px);text-align:center}
@@ -248,8 +249,22 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
       </div>
 
       <div class="field">
-        <label>联系方式 <small>（必填，例如 QQ / 微信 / 手机号）</small></label>
-        <input id="contact" name="contact" maxlength="60" required placeholder="请输入方便联系你的方式">
+        <label>联系方式 <small>（必填，可多选）</small></label>
+        <div class="contact-types" id="contactTypes">
+          <div class="contact-option"><input type="checkbox" id="ctQQ" value="QQ"><label for="ctQQ">QQ</label></div>
+          <div class="contact-option"><input type="checkbox" id="ctWechat" value="微信"><label for="ctWechat">微信</label></div>
+          <div class="contact-option"><input type="checkbox" id="ctPhone" value="手机号"><label for="ctPhone">手机号</label></div>
+          <div class="contact-option"><input type="checkbox" id="ctEmail" value="邮箱"><label for="ctEmail">邮箱</label></div>
+          <div class="contact-option"><input type="checkbox" id="ctOther" value="其他"><label for="ctOther">其他</label></div>
+        </div>
+        <input id="contact" name="contact" maxlength="120" required placeholder="例如：QQ 123456 / 微信 xxx；可以填写多个联系方式">
+      </div>
+
+      <div class="import-box">
+        <input type="file" id="jsonFile" accept="application/json,.json" hidden>
+        <button class="btn btn-ghost" type="button" id="importJsonBtn">导入 JSON 自动填写</button>
+        <button class="btn btn-ghost" type="button" id="pasteJsonBtn">粘贴 JSON</button>
+        <span class="import-hint">支持把之前复制的 JSON 或 .json 文件直接导入，自动填写姓名、联系方式和 6 道题。</span>
       </div>
 
       <div class="field">
@@ -294,7 +309,7 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
       </div>
 
       <div class="submit-area">
-        <div class="tip">提交后，姓名、联系方式和回答会发送到招新组配置的 Google Sheet，并通过邮箱通知负责人。</div>
+        <div class="tip">提交后，姓名、联系方式和回答会发送到招新负责人邮箱。页面会保留 JSON 预览，方便你备份或再次导入；如果邮箱未收到，请检查垃圾邮件。</div>
         <button class="btn btn-primary" type="submit">提交我的回答 ✦</button>
       </div>
       <div class="progress-box"><div class="progress-fill" id="formProgress"></div></div>
@@ -306,10 +321,10 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
   <div class="section-head">
     <div class="eyebrow">05 · Preview</div>
     <h2>你的回答已经整理好了</h2>
-    <p class="section-intro">你可以复制下面的内容，再发送给招新负责人。</p>
+    <p class="section-intro">下面是标准 JSON 格式，可复制保存，也可以之后通过「导入 JSON 自动填写」恢复答案。</p>
   </div>
-  <div class="card"><textarea id="previewText" style="min-height:420px"></textarea>
-    <div class="cta-row"><button class="btn btn-primary" id="copyBtn">复制回答</button><button class="btn btn-ghost" id="backBtn">返回修改</button></div>
+  <div class="card"><textarea id="previewText" class="json-preview" style="min-height:420px"></textarea>
+    <div class="cta-row"><button class="btn btn-primary" id="copyBtn">复制 JSON</button><button class="btn btn-ghost" id="downloadJsonBtn">保存 JSON</button><button class="btn btn-ghost" id="backBtn">返回修改</button></div>
   </div>
 </section>
 </main>
@@ -355,58 +370,116 @@ function toast(msg){
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzNOop8KebTN_TLNHTKEMDmgbD2dynsO2COQvi9tO_mwHTlXRx3yzHbSk5S_5WrclyZJw/exec";
 
 let submitStarted = false;
+const CONTACT_TYPE_IDS = ['ctQQ','ctWechat','ctPhone','ctEmail','ctOther'];
+
+function getContactTypes(){
+  return CONTACT_TYPE_IDS.map(id=>$('#'+id)).filter(x=>x.checked).map(x=>x.value);
+}
+function setContactTypes(types){
+  const set=new Set(Array.isArray(types)?types:[]);
+  CONTACT_TYPE_IDS.forEach(id=>{
+    const el=$('#'+id); el.checked=set.has(el.value);
+  });
+}
+function buildContactValue(){
+  const types=getContactTypes();
+  const value=$('#contact').value.trim();
+  if(types.length && value) return types.join('、')+'：'+value;
+  return value;
+}
+function makeJsonPayload(){
+  return {
+    version: 1,
+    team: '惠州学院 ACM 笨蛋队',
+    slogan: '因为我们是笨蛋，所以更要笨鸟先飞。',
+    name: $('#name').value.trim(),
+    contact: {
+      types: getContactTypes(),
+      value: $('#contact').value.trim()
+    },
+    answers: {
+      q1: $('textarea[name="q1"]').value.trim(),
+      q2: $('textarea[name="q2"]').value.trim(),
+      q3: $('textarea[name="q3"]').value.trim(),
+      open1: $('textarea[name="open1"]').value.trim(),
+      open2: $('textarea[name="open2"]').value.trim(),
+      open3: $('textarea[name="open3"]').value.trim()
+    }
+  };
+}
+function fillFromJson(data){
+  const answers=data.answers || data;
+  if(data.name != null) $('#name').value=String(data.name);
+  if(data.contact){
+    if(typeof data.contact === 'object'){
+      setContactTypes(data.contact.types || []);
+      $('#contact').value=String(data.contact.value || '');
+    }else{
+      $('#contact').value=String(data.contact);
+    }
+  }
+  const map={q1:'q1',q2:'q2',q3:'q3',open1:'open1',open2:'open2',open3:'open3'};
+  Object.keys(map).forEach(k=>{
+    const el=$('textarea[name="'+map[k]+'"]');
+    if(el && answers[k] != null) el.value=String(answers[k]);
+  });
+  $$('textarea[data-count]').forEach(t=>$('#'+t.dataset.count).textContent=t.value.length);
+  updateFormProgress();
+  toast('JSON 已导入，表单已自动填写 ✦');
+  $('#answer').scrollIntoView({behavior:'smooth'});
+}
+function parseJsonText(text){
+  try{return JSON.parse(text)}catch(e){toast('JSON 格式不正确，请检查括号、引号等。');return null}
+}
+
+$('#importJsonBtn').addEventListener('click',()=>$('#jsonFile').click());
+$('#jsonFile').addEventListener('change',async e=>{
+  const file=e.target.files[0];
+  if(!file) return;
+  try{ fillFromJson(JSON.parse(await file.text())); }
+  catch(err){ toast('JSON 文件无法读取，请确认是有效的 JSON。'); }
+  e.target.value='';
+});
+$('#pasteJsonBtn').addEventListener('click',()=>{
+  const text=prompt('请粘贴之前复制的 JSON：');
+  if(!text) return;
+  const data=parseJsonText(text);
+  if(data) fillFromJson(data);
+});
 
 $('#joinForm').addEventListener('submit', e=>{
   e.preventDefault();
-
-  const form = $('#joinForm');
-  if (!form.reportValidity()) return;
-
-  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes('请把这里替换')) {
-    toast('请先配置 Google Apps Script Web App 地址。');
-    return;
+  const form=$('#joinForm');
+  if(!form.reportValidity()) return;
+  if(getContactTypes().length===0){ toast('请至少选择一种联系方式类型，例如 QQ / 微信 / 手机号。'); return; }
+  if(!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes('请把这里替换')){
+    toast('请先配置 Google Apps Script Web App 地址。'); return;
   }
 
-  const btn = form.querySelector('button[type="submit"]');
-  const oldText = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = '正在提交…';
-  submitStarted = true;
+  const btn=form.querySelector('button[type="submit"]');
+  const oldText=btn.textContent;
+  btn.disabled=true; btn.textContent='正在提交…'; submitStarted=true;
 
-  // 将页面表单提交到隐藏 iframe，避免跳离当前招新页面。
-  form.action = GOOGLE_SCRIPT_URL;
+  // Google Apps Script 后端接收一个普通的 contact 字符串，因此提交前把类型与内容合并。
+  const contactInput=$('#contact');
+  const originalContact=contactInput.value;
+  contactInput.value=buildContactValue();
+  form.action=GOOGLE_SCRIPT_URL;
   HTMLFormElement.prototype.submit.call(form);
 
-  // Google Apps Script 会返回页面到 iframe；iframe load 事件在跨域场景也能触发。
+  // 跨域 iframe 无法直接读取 Apps Script 的响应内容，因此这里不伪造“已发送成功”。
+  // 请求发出后进入 JSON 预览，并明确提示检查邮箱；若后端执行失败，可在 Apps Script「执行作业」查看错误。
   setTimeout(()=>{
-    if (submitStarted) {
-      btn.disabled = false;
-      btn.textContent = oldText;
-      submitStarted = false;
+    contactInput.value=originalContact;
+    btn.disabled=false; btn.textContent=oldText; submitStarted=false;
 
-      const name = $('#name').value.trim();
-      const contact = $('#contact').value.trim();
-      const answers = $$('#joinForm textarea').map(x=>x.value.trim()||'（未填写）');
-      const titles=[
-        '1. 你为什么选择打算法竞赛？',
-        '2. 能否坚持？为什么？',
-        '3. 打算学习到什么地步？',
-        '4. 开放题：算力越来越强，算法还有必要吗？',
-        '5. 开放题：AI 时代，为什么还要学习算法竞赛？',
-        '6. 开放题：天赋、热爱、动力，如何影响竞赛？'
-      ];
-      let out='【惠州学院 ACM 笨蛋队招新回答】\n\n姓名：'+name+'\n联系方式：'+contact+'\n\n';
-      titles.forEach((t,i)=>out+=t+'\n'+answers[i]+'\n\n');
-      out+='——\n因为我们是笨蛋，所以更要笨鸟先飞。\n';
-      $('#previewText').value=out;
-      $('#preview').style.display='block';
-      setTimeout(()=>$('#preview').scrollIntoView({behavior:'smooth'}),50);
-      toast('回答已提交，请留意后续联系。');
-      form.reset();
-      updateFormProgress();
-      $$('textarea[data-count]').forEach(t=>$('#'+t.dataset.count).textContent='0');
-    }
-  }, 1800);
+    $('#previewText').value=JSON.stringify(makeJsonPayload(),null,2);
+    $('#preview').style.display='block';
+    setTimeout(()=>$('#preview').scrollIntoView({behavior:'smooth'}),50);
+    toast('提交请求已发出；请检查负责人邮箱是否收到。');
+    form.reset(); setContactTypes([]); updateFormProgress();
+    $$('textarea[data-count]').forEach(t=>$('#'+t.dataset.count).textContent='0');
+  },1800);
 });
 
 $('#submitFrame').addEventListener('load', ()=>{
@@ -414,8 +487,14 @@ $('#submitFrame').addEventListener('load', ()=>{
 });
 
 $('#copyBtn').addEventListener('click',async()=>{
-  try{await navigator.clipboard.writeText($('#previewText').value);toast('已复制到剪贴板 ✦')}
-  catch(e){$('#previewText').select();document.execCommand('copy');toast('已复制，请粘贴发送。')}
+  try{await navigator.clipboard.writeText($('#previewText').value);toast('JSON 已复制到剪贴板 ✦')}
+  catch(e){$('#previewText').select();document.execCommand('copy');toast('JSON 已复制，请粘贴保存。')}
+});
+$('#downloadJsonBtn').addEventListener('click',()=>{
+  const blob=new Blob([$('#previewText').value],{type:'application/json;charset=utf-8'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  const name=$('#name').value.trim()||'笨蛋队招新回答';
+  a.download=name+'_ACM笨蛋队.json'; a.click(); URL.revokeObjectURL(a.href);
 });
 $('#backBtn').addEventListener('click',()=>$('#answer').scrollIntoView({behavior:'smooth'}));
 </script>
