@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>惠州学院 ACM 笨蛋队 · 招新问卷</title>
 <meta name="theme-color" content="#087f66">
-<!-- 招新提交功能：请在页面底部 JS 的 GOOGLE_SCRIPT_URL 填入 Google Apps Script Web App /exec 地址。 -->
+<!-- 招新提交功能：已连接 Google Apps Script Web App。 -->
 <style>
 :root{
   --green:#087f66; --green2:#0ca77f; --deep:#075b4c; --blue:#1687e8;
@@ -43,8 +43,9 @@ a{color:inherit}
 .hero{
   min-height:100vh;padding:94px 18px 40px;display:grid;place-items:center;position:relative;
 }
-.hero-wrap{width:min(1240px,100%);display:grid;grid-template-columns:1.18fr .82fr;gap:26px;align-items:start}
+.hero-wrap{width:min(1240px,100%);display:flex;flex-direction:column;gap:30px;align-items:stretch}
 .hero-art{
+  width:100%;
   position:relative;border-radius:32px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.8);
   background:#dff8f2;align-self:start;
 }
@@ -111,7 +112,7 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .reveal{opacity:0;transform:translateY(25px);transition:.7s ease}.reveal.visible{opacity:1;transform:none}
 @media(max-width:900px){
-  .hero-wrap{grid-template-columns:1fr}.hero-art{order:2;min-height:0}.hero-art img{min-height:0;height:auto}.hero-copy{order:1}
+  .hero-wrap{flex-direction:column}.hero-art{order:1;min-height:0}.hero-art img{min-height:0;height:auto}.hero-copy{order:2}
   .stats{grid-template-columns:1fr}
 }
 @media(max-width:620px){
@@ -351,7 +352,7 @@ function toast(msg){
 // ===== Google Apps Script 配置 =====
 // 部署 Apps Script Web App 后，把下面地址替换成你的 /exec 地址。
 // 例如：https://script.google.com/macros/s/XXXXXXXX/exec
-const GOOGLE_SCRIPT_URL = "请把这里替换成你的 Apps Script Web App 地址";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzNOop8KebTN_TLNHTKEMDmgbD2dynsO2COQvi9tO_mwHTlXRx3yzHbSk5S_5WrclyZJw/exec";
 
 let submitStarted = false;
 
