@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>惠州学院 ACM 笨蛋队 · 招新问卷</title>
 <meta name="theme-color" content="#087f66">
-<!-- 招新提交功能：已连接 Google Apps Script Web App。 -->
+<!-- 招新回答页面：无需提交，填写后可直接复制信息私发给招新负责人。 -->
 <style>
 :root{
   --green:#087f66; --green2:#0ca77f; --deep:#075b4c; --blue:#1687e8;
@@ -241,30 +241,22 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
     <p class="section-intro">以上问题几乎不会影响筛选标准。笨蛋队欢迎每一个对算法竞赛保有热情、想要学习提升自我的人。</p>
   </div>
   <div class="card reveal">
-    <iframe name="submitFrame" id="submitFrame" style="display:none" title="submission target"></iframe>
-    <form class="form" id="joinForm" method="POST" target="submitFrame">
+    <form class="form" id="joinForm">
       <div class="field">
         <label>姓名 <small>（必填）</small></label>
         <input id="name" name="name" maxlength="30" required placeholder="请输入真实姓名">
       </div>
 
       <div class="field">
-        <label>联系方式 <small>（必填，可多选）</small></label>
-        <div class="contact-types" id="contactTypes">
-          <div class="contact-option"><input type="checkbox" id="ctQQ" value="QQ"><label for="ctQQ">QQ</label></div>
-          <div class="contact-option"><input type="checkbox" id="ctWechat" value="微信"><label for="ctWechat">微信</label></div>
-          <div class="contact-option"><input type="checkbox" id="ctPhone" value="手机号"><label for="ctPhone">手机号</label></div>
-          <div class="contact-option"><input type="checkbox" id="ctEmail" value="邮箱"><label for="ctEmail">邮箱</label></div>
-          <div class="contact-option"><input type="checkbox" id="ctOther" value="其他"><label for="ctOther">其他</label></div>
-        </div>
-        <input id="contact" name="contact" maxlength="120" required placeholder="例如：QQ 123456 / 微信 xxx；可以填写多个联系方式">
+        <label>专业 + 班级 <small>（必填）</small></label>
+        <input id="majorClass" name="majorClass" maxlength="80" required placeholder="例如：计算机科学与技术 2401 班">
       </div>
 
       <div class="import-box">
         <input type="file" id="jsonFile" accept="application/json,.json" hidden>
         <button class="btn btn-ghost" type="button" id="importJsonBtn">导入 JSON 自动填写</button>
         <button class="btn btn-ghost" type="button" id="pasteJsonBtn">粘贴 JSON</button>
-        <span class="import-hint">支持把之前复制的 JSON 或 .json 文件直接导入，自动填写姓名、联系方式和 6 道题。</span>
+        <span class="import-hint">支持把之前复制的 JSON 或 .json 文件直接导入，自动填写姓名、专业+班级和 6 道题。</span>
       </div>
 
       <div class="field">
@@ -309,8 +301,8 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
       </div>
 
       <div class="submit-area">
-        <div class="tip">提交后，姓名、联系方式和回答会发送到招新负责人邮箱。页面会保留 JSON 预览，方便你备份或再次导入；如果邮箱未收到，请检查垃圾邮件。</div>
-        <button class="btn btn-primary" type="submit">提交我的回答 ✦</button>
+        <div class="tip">填写完成后不会自动提交任何信息。点击下方按钮即可生成一份适合私发给招新负责人的回答，你可以复制后通过 QQ、微信等方式发送。</div>
+        <button class="btn btn-primary" type="submit">整理我的回答 ✦</button>
       </div>
       <div class="progress-box"><div class="progress-fill" id="formProgress"></div></div>
     </form>
@@ -319,12 +311,18 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
 
 <section class="section" id="preview" style="display:none">
   <div class="section-head">
-    <div class="eyebrow">05 · Preview</div>
+    <div class="eyebrow">05 · READY TO SEND</div>
     <h2>你的回答已经整理好了</h2>
-    <p class="section-intro">下面是标准 JSON 格式，可复制保存，也可以之后通过「导入 JSON 自动填写」恢复答案。</p>
+    <p class="section-intro">复制下面这段信息，然后私发给招新负责人即可。页面不会自动提交或发送任何信息。</p>
   </div>
-  <div class="card"><textarea id="previewText" class="json-preview" style="min-height:420px"></textarea>
-    <div class="cta-row"><button class="btn btn-primary" id="copyBtn">复制 JSON</button><button class="btn btn-ghost" id="downloadJsonBtn">保存 JSON</button><button class="btn btn-ghost" id="backBtn">返回修改</button></div>
+  <div class="card">
+    <textarea id="previewText" class="json-preview" style="min-height:520px"></textarea>
+    <div class="cta-row">
+      <button class="btn btn-primary" id="copyBtn" type="button">复制信息</button>
+      <button class="btn btn-ghost" id="copyJsonBtn" type="button">复制 JSON</button>
+      <button class="btn btn-ghost" id="downloadJsonBtn" type="button">保存 JSON</button>
+      <button class="btn btn-ghost" id="backBtn" type="button">返回修改</button>
+    </div>
   </div>
 </section>
 </main>
@@ -364,39 +362,13 @@ function toast(msg){
   const t=$('#toast'); t.textContent=msg; t.classList.add('show');
   clearTimeout(window.__toast); window.__toast=setTimeout(()=>t.classList.remove('show'),2800);
 }
-// ===== Google Apps Script 配置 =====
-// 部署 Apps Script Web App 后，把下面地址替换成你的 /exec 地址。
-// 例如：https://script.google.com/macros/s/XXXXXXXX/exec
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzNOop8KebTN_TLNHTKEMDmgbD2dynsO2COQvi9tO_mwHTlXRx3yzHbSk5S_5WrclyZJw/exec";
-
-let submitStarted = false;
-const CONTACT_TYPE_IDS = ['ctQQ','ctWechat','ctPhone','ctEmail','ctOther'];
-
-function getContactTypes(){
-  return CONTACT_TYPE_IDS.map(id=>$('#'+id)).filter(x=>x.checked).map(x=>x.value);
-}
-function setContactTypes(types){
-  const set=new Set(Array.isArray(types)?types:[]);
-  CONTACT_TYPE_IDS.forEach(id=>{
-    const el=$('#'+id); el.checked=set.has(el.value);
-  });
-}
-function buildContactValue(){
-  const types=getContactTypes();
-  const value=$('#contact').value.trim();
-  if(types.length && value) return types.join('、')+'：'+value;
-  return value;
-}
 function makeJsonPayload(){
   return {
-    version: 1,
+    version: 2,
     team: '惠州学院 ACM 笨蛋队',
     slogan: '因为我们是笨蛋，所以更要笨鸟先飞。',
     name: $('#name').value.trim(),
-    contact: {
-      types: getContactTypes(),
-      value: $('#contact').value.trim()
-    },
+    majorClass: $('#majorClass').value.trim(),
     answers: {
       q1: $('textarea[name="q1"]').value.trim(),
       q2: $('textarea[name="q2"]').value.trim(),
@@ -407,17 +379,41 @@ function makeJsonPayload(){
     }
   };
 }
+function makeShareText(data=makeJsonPayload()){
+  const a=data.answers || {};
+  return [
+    '【惠州学院 ACM 笨蛋队招新回答】',
+    '',
+    '姓名：' + (data.name || ''),
+    '专业+班级：' + (data.majorClass || ''),
+    '',
+    '1. 为什么选择打算法竞赛？',
+    a.q1 || '',
+    '',
+    '2. 你觉得自己能否坚持？为什么？',
+    a.q2 || '',
+    '',
+    '3. 你打算学习到什么地步？',
+    a.q3 || '',
+    '',
+    '4. 算力越来越强，算法还有必要吗？',
+    a.open1 || '',
+    '',
+    '5. AI 时代，为什么还要学习算法竞赛？',
+    a.open2 || '',
+    '',
+    '6. 天赋、热爱、动力，如何影响竞赛？',
+    a.open3 || '',
+    '',
+    '—— ACM HZU · 笨蛋队',
+    '因为我们是笨蛋，所以更要笨鸟先飞。'
+  ].join('\n');
+}
 function fillFromJson(data){
   const answers=data.answers || data;
   if(data.name != null) $('#name').value=String(data.name);
-  if(data.contact){
-    if(typeof data.contact === 'object'){
-      setContactTypes(data.contact.types || []);
-      $('#contact').value=String(data.contact.value || '');
-    }else{
-      $('#contact').value=String(data.contact);
-    }
-  }
+  if(data.majorClass != null) $('#majorClass').value=String(data.majorClass);
+  // 兼容旧版 JSON：如果仍带 contact，则忽略，不再导入联系方式。
   const map={q1:'q1',q2:'q2',q3:'q3',open1:'open1',open2:'open2',open3:'open3'};
   Object.keys(map).forEach(k=>{
     const el=$('textarea[name="'+map[k]+'"]');
@@ -447,51 +443,29 @@ $('#pasteJsonBtn').addEventListener('click',()=>{
   if(data) fillFromJson(data);
 });
 
-$('#joinForm').addEventListener('submit', e=>{
+$('#joinForm').addEventListener('submit',e=>{
   e.preventDefault();
   const form=$('#joinForm');
   if(!form.reportValidity()) return;
-  if(getContactTypes().length===0){ toast('请至少选择一种联系方式类型，例如 QQ / 微信 / 手机号。'); return; }
-  if(!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes('请把这里替换')){
-    toast('请先配置 Google Apps Script Web App 地址。'); return;
-  }
-
-  const btn=form.querySelector('button[type="submit"]');
-  const oldText=btn.textContent;
-  btn.disabled=true; btn.textContent='正在提交…'; submitStarted=true;
-
-  // Google Apps Script 后端接收一个普通的 contact 字符串，因此提交前把类型与内容合并。
-  const contactInput=$('#contact');
-  const originalContact=contactInput.value;
-  contactInput.value=buildContactValue();
-  form.action=GOOGLE_SCRIPT_URL;
-  HTMLFormElement.prototype.submit.call(form);
-
-  // 跨域 iframe 无法直接读取 Apps Script 的响应内容，因此这里不伪造“已发送成功”。
-  // 请求发出后进入 JSON 预览，并明确提示检查邮箱；若后端执行失败，可在 Apps Script「执行作业」查看错误。
-  setTimeout(()=>{
-    contactInput.value=originalContact;
-    btn.disabled=false; btn.textContent=oldText; submitStarted=false;
-
-    $('#previewText').value=JSON.stringify(makeJsonPayload(),null,2);
-    $('#preview').style.display='block';
-    setTimeout(()=>$('#preview').scrollIntoView({behavior:'smooth'}),50);
-    toast('提交请求已发出；请检查负责人邮箱是否收到。');
-    form.reset(); setContactTypes([]); updateFormProgress();
-    $$('textarea[data-count]').forEach(t=>$('#'+t.dataset.count).textContent='0');
-  },1800);
-});
-
-$('#submitFrame').addEventListener('load', ()=>{
-  // iframe load 作为“请求已返回”的提示，不读取跨域响应内容。
+  const payload=makeJsonPayload();
+  $('#previewText').value=makeShareText(payload);
+  $('#preview').style.display='block';
+  setTimeout(()=>$('#preview').scrollIntoView({behavior:'smooth'}),50);
+  toast('回答已整理好，可以复制后私发给招新负责人 ✦');
 });
 
 $('#copyBtn').addEventListener('click',async()=>{
-  try{await navigator.clipboard.writeText($('#previewText').value);toast('JSON 已复制到剪贴板 ✦')}
-  catch(e){$('#previewText').select();document.execCommand('copy');toast('JSON 已复制，请粘贴保存。')}
+  const text=$('#previewText').value;
+  try{await navigator.clipboard.writeText(text);toast('招新回答已复制，可以直接私发 ✦')}
+  catch(e){$('#previewText').select();document.execCommand('copy');toast('回答已复制，请直接粘贴发送。')}
+});
+$('#copyJsonBtn').addEventListener('click',async()=>{
+  const text=JSON.stringify(makeJsonPayload(),null,2);
+  try{await navigator.clipboard.writeText(text);toast('JSON 已复制到剪贴板 ✦')}
+  catch(e){toast('复制 JSON 失败，请手动选择保存。')}
 });
 $('#downloadJsonBtn').addEventListener('click',()=>{
-  const blob=new Blob([$('#previewText').value],{type:'application/json;charset=utf-8'});
+  const blob=new Blob([JSON.stringify(makeJsonPayload(),null,2)],{type:'application/json;charset=utf-8'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
   const name=$('#name').value.trim()||'笨蛋队招新回答';
   a.download=name+'_ACM笨蛋队.json'; a.click(); URL.revokeObjectURL(a.href);
