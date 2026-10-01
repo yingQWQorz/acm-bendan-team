@@ -107,21 +107,66 @@ textarea{min-height:130px;line-height:1.7}
 .progress-box{margin-top:18px;background:#e5f3f0;border-radius:999px;height:9px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--blue));transition:.35s}
 .ai-note{margin-top:18px;padding:15px 17px;border-radius:15px;background:#f0f8ff;border:1px dashed rgba(22,135,232,.3);color:#56716e;font-size:13px;line-height:1.8}
 .contact-types{display:flex;flex-wrap:wrap;gap:9px}.contact-option{position:relative}.contact-option input{position:absolute;opacity:0;pointer-events:none}.contact-option label{display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border-radius:12px;border:1px solid rgba(8,127,102,.18);background:rgba(255,255,255,.82);color:#426d67;font-weight:700;cursor:pointer;transition:.2s}.contact-option label:before{content:"";width:15px;height:15px;border:1.5px solid #8aa7a2;border-radius:4px;background:#fff}.contact-option input:checked+label{border-color:#0ca77f;background:#e7f8f3;color:#087f66;box-shadow:0 0 0 3px rgba(12,167,127,.08)}.contact-option input:checked+label:before{content:"✓";display:grid;place-items:center;background:#0ca77f;border-color:#0ca77f;color:#fff;font-size:11px}.import-box{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:14px 16px;border-radius:16px;background:linear-gradient(135deg,#f3fbff,#eefaf7);border:1px dashed rgba(22,135,232,.25)}.import-box .btn{padding:10px 14px;font-size:13px}.import-hint{font-size:12px;color:#718c88;line-height:1.6}.json-preview{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:13px;line-height:1.65}
+.mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.mini-card{padding:22px;border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(240,250,248,.94));border:1px solid var(--line);box-shadow:0 12px 30px rgba(11,92,82,.06)}.mini-card h3{margin:7px 0 8px;color:#19584f}.mini-card p{color:#67827e;line-height:1.8;margin:0}.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.tag{padding:7px 10px;border-radius:999px;background:#e9f7f4;color:#087f66;font-size:12px;font-weight:800}.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.benefit-card{padding:22px;border-radius:20px;background:rgba(255,255,255,.86);border:1px solid var(--line)}.benefit-icon{font-size:28px}.benefit-card h3{margin:8px 0;color:#19584f}.benefit-card p{margin:0;color:#68837f;line-height:1.8}.caveat{margin-top:16px;padding:14px 16px;border-radius:14px;background:#fff8e8;border:1px dashed #e7c77a;color:#78613a;font-size:13px;line-height:1.7}.game-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}.game-panel{padding:20px;border-radius:20px;background:#f7fcfb;border:1px solid var(--line)}.game-status{font-weight:800;color:#19584f;margin:0 0 12px}.stone-row{display:flex;flex-wrap:wrap;gap:5px;min-height:70px;margin:12px 0}.stone{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#0ca77f,#1687e8);box-shadow:0 4px 8px rgba(8,127,102,.16)}.take-buttons{display:flex;gap:8px;flex-wrap:wrap}.take-buttons .btn{padding:9px 14px}.game-note{font-size:12px;color:#718c88;line-height:1.7;margin-top:12px}.sudoku-board{display:grid;grid-template-columns:repeat(4,54px);width:max-content;border:2px solid #19584f;border-radius:10px;overflow:hidden;margin:10px 0}.s-cell{width:54px;height:54px;display:grid;place-items:center;border-right:1px solid #bdd8d3;border-bottom:1px solid #bdd8d3;background:white;font-size:25px;cursor:pointer}.s-cell:nth-child(4n){border-right:0}.s-cell:nth-last-child(-n+4){border-bottom:0}.s-cell.fixed{background:#e9f7f4;cursor:default}.s-cell.selected{box-shadow:inset 0 0 0 3px #1687e8}.s-cell:nth-child(2),.s-cell:nth-child(6),.s-cell:nth-child(10),.s-cell:nth-child(14){border-right:2px solid #19584f}.s-cell:nth-child(5),.s-cell:nth-child(6),.s-cell:nth-child(7),.s-cell:nth-child(8){border-top:2px solid #19584f}.symbol-buttons{display:flex;justify-content:center;align-items:center;gap:7px;flex-wrap:wrap;margin:12px 0 4px}.symbol-buttons button{min-width:128px;height:44px;padding:0 18px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;font-size:15px;font-weight:900;line-height:44px;text-align:center;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}.symbol-buttons button:hover{border-color:#1687e8;background:#eef7ff}.symbol-buttons button:hover{border-color:#1687e8;background:#eef7ff}.game-win{color:#087f66;font-weight:900;margin-top:10px}.game-reset{margin-top:10px}.algo-box{margin-top:15px;padding:14px 16px;border-radius:14px;background:#f0f8ff;border:1px dashed rgba(22,135,232,.3);color:#56716e;line-height:1.75;font-size:13px}
+
 footer{padding:55px 18px 75px;text-align:center;color:#75918d}
 .footer-title{font-size:25px;font-weight:900;color:var(--green);margin-bottom:8px}
 .toast{position:fixed;z-index:100;left:50%;bottom:25px;transform:translate(-50%,25px);opacity:0;pointer-events:none;background:#103e38;color:#fff;padding:14px 18px;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.18);transition:.3s;max-width:calc(100% - 28px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .reveal{opacity:0;transform:translateY(25px);transition:.7s ease}.reveal.visible{opacity:1;transform:none}
 @media(max-width:900px){
+  .game-wrap{grid-template-columns:1fr}.benefit-grid{grid-template-columns:1fr 1fr}.mini-grid{grid-template-columns:1fr}
   .hero-wrap{flex-direction:column}.hero-art{order:1;min-height:0}.hero-art img{min-height:0;height:auto}.hero-copy{order:2}
   .stats{grid-template-columns:1fr}
 }
 @media(max-width:620px){
+  .benefit-grid{grid-template-columns:1fr}.sudoku-board{grid-template-columns:repeat(4,46px)}.s-cell{width:46px;height:46px}
   .topbar{top:8px}.brand{font-size:13px}.nav a{padding:7px 8px;font-size:11px}
   .hero{padding-top:75px}.hero-art{border-radius:22px}.hero h1{font-size:48px}
   .section{padding:60px 0}.card{padding:20px;border-radius:20px}
   .notice{grid-template-columns:1fr}.notice-icon{width:44px;height:44px}
 }
+
+/* ===== 学习路线图 + 交互知识网络 + 狗狗数独 ===== */
+.roadmap-map{position:relative;margin-top:24px;padding:18px;border:1px solid rgba(8,127,102,.16);border-radius:28px;background:radial-gradient(circle at 10% 8%,rgba(12,167,127,.11),transparent 28%),radial-gradient(circle at 92% 30%,rgba(22,135,232,.10),transparent 30%),linear-gradient(135deg,rgba(255,255,255,.96),rgba(247,253,252,.96));box-shadow:0 20px 55px rgba(4,83,70,.10);overflow:hidden}
+.roadmap-map:before,.network-map:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.25;background-image:linear-gradient(rgba(8,127,102,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(8,127,102,.06) 1px,transparent 1px);background-size:28px 28px}
+.roadmap-map-head,.network-map-head{position:relative;z-index:2;display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:3px 8px 12px;color:var(--deep)}
+.roadmap-map-head span,.network-map-head span{font-size:12px;font-weight:950;letter-spacing:.16em;color:var(--blue)}.roadmap-map-head small,.network-map-head small{font-size:12px;color:#75918d}
+.roadmap-viewport{position:relative;z-index:1;height:760px;overflow:auto;border:1px solid rgba(8,127,102,.13);border-radius:22px;background:rgba(251,255,254,.72);box-shadow:inset 0 0 0 1px rgba(255,255,255,.75)}
+.roadmap-stage{position:relative;width:2500px;height:1750px;transform-origin:0 0;will-change:transform;cursor:grab}.roadmap-stage.dragging{cursor:grabbing}.roadmap-viewport{cursor:grab}.roadmap-viewport.dragging{cursor:grabbing}
+.roadmap-lines{position:absolute;left:0;top:0;width:2500px;height:1750px;overflow:visible;pointer-events:none}
+.road-line{fill:none;stroke:rgba(65,103,98,.28);stroke-width:2.2;stroke-linecap:round;vector-effect:non-scaling-stroke}.road-line.main{stroke:url(#roadLine);stroke-width:3}
+.road-node{position:absolute;transform:translate(-50%,-50%);width:190px;min-height:82px;padding:11px 14px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid rgba(8,127,102,.22);border-radius:16px;background:rgba(255,255,255,.96);box-shadow:0 9px 22px rgba(4,83,70,.08);color:var(--deep);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;cursor:pointer}
+.road-node:before{content:"";position:absolute;top:-6px;right:-6px;width:11px;height:11px;border-radius:50%;background:#0ca77f;border:2px solid #fff;box-shadow:0 0 0 2px rgba(12,167,127,.13)}
+.road-node:hover{transform:translate(-50%,-50%) translateY(-5px);box-shadow:0 16px 34px rgba(4,83,70,.15);border-color:rgba(22,135,232,.46)}
+.road-node strong{font-size:14px;line-height:1.35}.road-node span{margin-top:5px;font-size:10px;line-height:1.45;color:#6c8783}.node-kicker{margin-bottom:4px;font-size:9px;font-weight:950;letter-spacing:.09em;color:#1687e8}
+.root-node{width:230px;min-height:92px;border-color:rgba(8,127,102,.42);background:linear-gradient(135deg,#effbf7,#f3f9ff)}.root-node strong{font-size:18px}.root-node:before{background:#1687e8}
+.node-green{border-color:rgba(12,167,127,.28);background:rgba(250,255,253,.97)}.node-blue{border-color:rgba(22,135,232,.28);background:rgba(250,253,255,.97)}.node-purple{border-color:rgba(129,101,193,.28);background:rgba(253,251,255,.97)}.node-yellow{border-color:rgba(205,151,41,.30);background:rgba(255,254,248,.98)}.node-deep{border-color:rgba(7,91,76,.34);background:linear-gradient(135deg,#f0faf7,#f2f8ff)}.finish-node{width:220px;min-height:88px;border-color:rgba(22,135,232,.42);background:linear-gradient(135deg,#eaf9f4,#eef7ff)}.finish-node:before{background:#1687e8}
+.roadmap-toolbar{position:relative;z-index:3;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:10px 0}.roadmap-toolbar button{height:36px;padding:0 13px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--deep);font-weight:900;cursor:pointer}.roadmap-toolbar button:hover{border-color:#1687e8;background:#eef7ff}.roadmap-scale{font-size:12px;font-weight:900;color:#6b8782;min-width:54px;text-align:center}
+.fullscreen-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px}.roadmap-map:fullscreen,.network-map:fullscreen{width:100vw;height:100vh;box-sizing:border-box;margin:0;padding:20px;border-radius:0;overflow:hidden;background:linear-gradient(135deg,#f8fffd,#eef8ff)}.roadmap-map:fullscreen .roadmap-viewport{height:calc(100vh - 205px)}.network-map:fullscreen .network-workspace{height:calc(100vh - 150px);min-height:0}.network-map:fullscreen .network-viewport{height:100%;min-height:0}.network-map:fullscreen .network-panel{max-height:100%;overflow:auto}.roadmap-map:-webkit-full-screen,.network-map:-webkit-full-screen{width:100vw;height:100vh;box-sizing:border-box;margin:0;padding:20px;border-radius:0;overflow:hidden;background:linear-gradient(135deg,#f8fffd,#eef8ff)}.roadmap-map:-webkit-full-screen .roadmap-viewport{height:calc(100vh - 205px)}.network-map:-webkit-full-screen .network-workspace{height:calc(100vh - 150px);min-height:0}.network-map:-webkit-full-screen .network-viewport{height:100%;min-height:0}.network-map:-webkit-full-screen .network-panel{max-height:100%;overflow:auto}
+.roadmap-legend,.network-legend{position:relative;z-index:2;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:2px 0 12px;padding-top:2px}.roadmap-legend span,.network-legend span{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.84);border:1px solid rgba(8,127,102,.12);color:#587570;font-size:11px;font-weight:800}.legend-dot{width:9px;height:9px;border-radius:50%;display:inline-block}.roadmap-green{background:#0ca77f}.roadmap-blue{background:#1687e8}.roadmap-purple{background:#8165c1}.roadmap-yellow{background:#d49b29}.roadmap-deep{background:#075b4c}
+.road-note,.network-note{position:relative;z-index:2;padding:17px 20px;border-radius:18px;background:linear-gradient(135deg,#e8f8f4,#eef6ff);border:1px solid rgba(22,135,232,.14);color:#4f716d;line-height:1.8;font-size:13px}.road-note a,.network-note a{color:#1687e8;font-weight:800;text-decoration:none}.road-note a:hover,.network-note a:hover{text-decoration:underline}
+/* 第二版：人际关系网式知识网络 */
+.network-map{position:relative;margin-top:26px;padding:18px;border:1px solid rgba(8,127,102,.16);border-radius:28px;background:radial-gradient(circle at 18% 12%,rgba(12,167,127,.11),transparent 25%),radial-gradient(circle at 82% 35%,rgba(22,135,232,.10),transparent 30%),linear-gradient(135deg,rgba(255,255,255,.96),rgba(247,253,252,.96));box-shadow:0 20px 55px rgba(4,83,70,.10);overflow:hidden}
+.network-workspace{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;min-height:760px}
+.network-viewport{position:relative;min-width:0;height:760px;overflow:hidden;border:1px solid rgba(8,127,102,.13);border-radius:22px;background:rgba(251,255,254,.72);cursor:grab}.network-viewport.dragging{cursor:grabbing}
+.network-stage{position:absolute;left:0;top:0;width:1800px;height:1200px;transform-origin:0 0;will-change:transform}.network-lines{position:absolute;inset:0;width:1800px;height:1200px;pointer-events:none}.network-edge{fill:none;stroke:rgba(76,108,104,.20);stroke-width:2;transition:stroke .18s,stroke-width .18s,opacity .18s}.network-edge.active{stroke:#1687e8;stroke-width:4;opacity:1}.network-edge.dim{opacity:.08}
+.network-node{position:absolute;transform:translate(-50%,-50%);width:126px;min-height:54px;padding:8px 10px;border-radius:14px;border:1px solid rgba(8,127,102,.20);background:rgba(255,255,255,.95);box-shadow:0 8px 18px rgba(4,83,70,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;transition:transform .18s,opacity .18s,box-shadow .18s,border-color .18s;user-select:none}.network-node:hover{transform:translate(-50%,-50%) scale(1.05);box-shadow:0 13px 26px rgba(4,83,70,.14)}.network-node strong{font-size:12px;line-height:1.35}.network-node small{font-size:9px;color:#71908a;margin-top:3px}.network-node.focus{transform:translate(-50%,-50%) scale(1.12);border:2px solid #1687e8;box-shadow:0 0 0 5px rgba(22,135,232,.12),0 16px 30px rgba(22,135,232,.18);z-index:4}.network-node.related{border-color:#0ca77f;box-shadow:0 0 0 3px rgba(12,167,127,.10)}.network-node.dim{opacity:.20}
+.network-panel{border:1px solid rgba(8,127,102,.13);border-radius:22px;background:rgba(255,255,255,.88);padding:18px;box-shadow:0 10px 25px rgba(4,83,70,.07);overflow:auto}.network-panel .panel-kicker{font-size:10px;letter-spacing:.14em;font-weight:950;color:#1687e8}.network-panel h3{margin:7px 0 8px;font-size:20px;color:var(--deep)}.network-panel p{margin:0 0 12px;color:#64827e;font-size:12px;line-height:1.75}.network-related{display:flex;flex-wrap:wrap;gap:6px}.network-related button{border:1px solid rgba(8,127,102,.16);background:#f4fbf9;color:#27645b;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:800;cursor:pointer}.network-related button:hover{border-color:#1687e8;background:#eef7ff}.network-controls{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.network-controls button{height:34px;padding:0 11px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--deep);font-weight:900;cursor:pointer}.network-controls button:hover{border-color:#1687e8;background:#eef7ff}.network-tip{font-size:11px;color:#7a9691;line-height:1.7;margin-top:12px}.network-legend .dot-basic{background:#0ca77f}.network-legend .dot-ds{background:#1687e8}.network-legend .dot-algo{background:#8165c1}.network-legend .dot-math{background:#d49b29}.network-legend .dot-adv{background:#075b4c}
+@media(max-width:980px){.network-workspace{grid-template-columns:1fr}.network-panel{min-height:230px}.network-viewport{height:650px}.roadmap-viewport{height:680px}}
+@media(max-width:700px){.roadmap-map,.network-map{padding:14px;border-radius:22px}.roadmap-map-head,.network-map-head{display:block;padding-bottom:8px}.roadmap-map-head small,.network-map-head small{display:block;margin-top:4px}.roadmap-viewport{height:600px}.network-viewport{height:600px}.roadmap-toolbar{justify-content:flex-start}.roadmap-stage{width:2500px}.network-stage{width:1800px}}
+.dog-board{display:grid;grid-template-columns:repeat(6,48px);grid-template-rows:repeat(6,48px);width:max-content;border:3px solid #315c57;border-radius:14px;overflow:hidden;margin:14px 0;background:#fff;box-shadow:0 10px 25px rgba(4,83,70,.09)}
+.dog-cell{width:48px;height:48px;border:0;border-right:1px solid rgba(49,92,87,.18);border-bottom:1px solid rgba(49,92,87,.18);display:grid;place-items:center;cursor:pointer;font-size:23px;position:relative;transition:.15s}
+.dog-cell:nth-child(6n){border-right:0}.dog-cell:nth-last-child(-n+6){border-bottom:0}
+.dog-cell.c0{background:#dff5ee}.dog-cell.c1{background:#dcecff}.dog-cell.c2{background:#fff0c9}.dog-cell.c3{background:#f4def8}.dog-cell.c4{background:#ffe0df}.dog-cell.c5{background:#e9e1ff}
+.dog-cell:hover{filter:brightness(.96);transform:scale(.97);z-index:2}.dog-cell.fixed{box-shadow:inset 0 0 0 3px rgba(49,92,87,.35);cursor:default}.dog-cell.selected{box-shadow:inset 0 0 0 3px #1687e8;z-index:3}
+.dog-cell.invalid{box-shadow:inset 0 0 0 3px #e35b5b}.dog-cell.dog-blocked{cursor:not-allowed;filter:saturate(.82) brightness(.98)}.dog-cross{font-size:27px;font-weight:900;color:rgba(67,91,88,.52);line-height:1;transform:translateY(-1px);user-select:none}
+.dog-cell .dog-mark{font-size:23px;line-height:1;filter:drop-shadow(0 2px 2px rgba(0,0,0,.1))}
+.dog-legend{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 4px}.dog-legend span{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:11px;color:#54726e}.legend-dot{width:11px;height:11px;border-radius:4px;display:inline-block}.legend-dot.c0{background:#b9e9db}.legend-dot.c1{background:#b9d7f7}.legend-dot.c2{background:#f1d28d}.legend-dot.c3{background:#dbbce4}.legend-dot.c4{background:#f2b8b6}.legend-dot.c5{background:#c9b9f0}
+.dog-rules{display:grid;gap:7px;margin:12px 0;color:#5d7975;font-size:12px;line-height:1.65}.dog-rules b{color:#245e55}
+@media(max-width:900px){.roadmap-canvas{min-height:560px}.road-node{width:132px;min-height:64px;padding:8px 9px}.road-node strong{font-size:12px}.road-node span{font-size:9px}.root-node{width:180px}.finish-node{width:165px}}
+@media(max-width:700px){.roadmap-map{padding:14px;border-radius:22px}.roadmap-map-head{display:block;padding-bottom:8px}.roadmap-map-head small{display:block;margin-top:4px}.roadmap-canvas{min-height:520px;overflow-x:auto;overflow-y:hidden}.road-node{width:118px;min-height:60px;padding:7px}.road-node strong{font-size:11px}.road-node span{font-size:8px}.root-node{width:160px}.root-node strong{font-size:14px}.root-node span{font-size:9px}.finish-node{width:150px}}
+@media(max-width:560px){.dog-board{grid-template-columns:repeat(6,42px);grid-template-rows:repeat(6,42px)}.dog-cell{width:42px;height:42px;font-size:20px}.dog-cell .dog-mark{font-size:20px}}
 </style>
 </head>
 <body>
@@ -130,7 +175,7 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
 <header class="topbar">
   <div class="brand"><span class="brand-dot"></span>ACM · HZU · 笨蛋队</div>
   <nav class="nav">
-    <a href="#about">招新说明</a><a href="#questions">自问</a><a href="#open">开放题</a><a href="#answer">回答</a>
+    <a href="#about">招新说明</a><a href="#learn">小算法</a><a href="#roadmap">学习路线</a><a href="#benefits">收获</a><a href="#questions">自问</a><a href="#open">开放题</a><a href="#answer">回答</a>
   </nav>
 </header>
 
@@ -187,9 +232,157 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
   </div>
 </section>
 
+<section class="section" id="learn">
+  <div class="section-head reveal">
+    <div class="eyebrow">02 · Learn & Play</div>
+    <h2>我们会学什么？先玩两个小算法</h2>
+    <p class="section-intro">算法竞赛不是背模板。我们会从 C++、数据结构和基础算法一路学起，也会用一些简单、有趣、可以亲手玩的题目，让你先感受到“算法到底在干什么”。</p>
+  </div>
+  <div class="mini-grid">
+    <article class="mini-card reveal">
+      <div class="q-label">FOUNDATION</div>
+      <h3>从代码到算法思维</h3>
+      <p>从 C++ 基础、STL 开始，逐步学习枚举、模拟、排序、二分、贪心、递归、搜索、动态规划、图论、字符串、数论等竞赛常见知识。</p>
+      <div class="tag-row"><span class="tag">C++ / STL</span><span class="tag">数据结构</span><span class="tag">搜索</span><span class="tag">DP</span><span class="tag">图论</span><span class="tag">数学</span></div>
+    </article>
+    <article class="mini-card reveal">
+      <div class="q-label">TRAINING</div>
+      <h3>从“会写”到“会比赛”</h3>
+      <p>课堂讲知识，比赛训练负责把知识串起来，再通过补题、复盘和专题训练逐渐建立自己的解题套路。</p>
+      <div class="tag-row"><span class="tag">专题训练</span><span class="tag">比赛模拟</span><span class="tag">补题复盘</span><span class="tag">代码能力</span></div>
+    </article>
+  </div>
+
+  <div class="game-wrap" style="margin-top:18px">
+    <div class="game-panel reveal">
+      <div class="q-label">MINI GAME 01 · BASH GAME</div>
+      <h3>巴什博弈：21 根石子，轮流拿 1～3 根</h3>
+      <p class="game-note">你先手。拿走最后一根的人获胜。试试看：你能不能找到一个稳定获胜的策略？</p>
+      <div id="stoneRow" class="stone-row"></div>
+      <p id="bashStatus" class="game-status">轮到你了，请选择拿几根。</p>
+      <div class="take-buttons"><button class="btn btn-ghost bash-take" data-take="1">拿 1 根</button><button class="btn btn-ghost bash-take" data-take="2">拿 2 根</button><button class="btn btn-ghost bash-take" data-take="3">拿 3 根</button></div>
+      <button class="btn btn-ghost game-reset" id="bashReset" type="button">重新开始</button>
+      <div class="algo-box"><strong>算法味在哪里？</strong><br>当每次最多拿 3 根时，可以观察到“4 的倍数”是关键局面。让对手面对 4、8、12……根，再通过补足到 4 的方式控制局面，这就是最简单的博弈思维之一。</div>
+    </div>
+
+    <div class="game-panel reveal">
+      <div class="q-label">MINI GAME 02 · DOG SUDOKU</div>
+      <h3>狗狗数独：颜色、行列与“八方向”约束</h3>
+      <p class="game-note">这是我们自己设计的 6×6 小谜题：每种颜色只能放一只狗；每行、每列只能放一只狗；一只狗的上下左右和四个对角格都不能再有狗。</p>
+      <div id="dogLegend" class="dog-legend"></div>
+      <div id="sudokuBoard" class="dog-board"></div>
+      <div id="symbolButtons" class="symbol-buttons"></div>
+      <p id="sudokuStatus" class="game-status">先点击一个空格，再选择狗狗。试着同时满足三类约束。</p>
+      <button class="btn btn-ghost game-reset" id="sudokuReset" type="button">重新开始</button>
+      <div class="dog-rules">
+        <div>① <b>颜色约束：</b>每种颜色区域只能有一只狗。</div>
+        <div>② <b>行列约束：</b>每一行、每一列只能有一只狗。</div>
+        <div>③ <b>八邻域约束：</b>狗狗周围的上、下、左、右，以及左上、右上、左下、右下，都不能出现其他狗。</div>
+      </div>
+      <div class="algo-box"><strong>这就是算法思维：</strong>先把问题翻译成“约束”，再不断排除不可能的位置。继续学习搜索、剪枝、回溯后，你会发现很多竞赛题都可以这样拆解。</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="roadmap">
+  <div class="section-head reveal">
+    <div class="eyebrow">03 · Roadmap</div>
+    <h2>从“会写代码”到“会解决问题”</h2>
+    <p class="section-intro">参考 OI Wiki 的学习路线，把 C++、基础算法、数据结构、搜索、DP、图论、字符串、数学以及更进阶的专题展开成一张“知识地图”。它不是要求新人一次学完的课表，而是一张可以长期回看的导航图。OI Wiki 本身也把学习路线定位为新手指南与复习清单。 <a href="https://oi-wiki.org/contest/roadmap/" target="_blank" rel="noopener">查看 OI Wiki ↗</a></p>
+  </div>
+
+  <div class="roadmap-map reveal" aria-label="ACM 笨蛋队详细算法竞赛学习路线图">
+    <div class="roadmap-map-head"><span>LEARNING MAP · EXPANDED</span><small>按住鼠标拖动浏览 · 滚轮缩放 · 点击节点查看提示</small></div>
+    <div class="roadmap-toolbar">
+      <button type="button" id="roadZoomOut">−</button><span class="roadmap-scale" id="roadScale">100%</span><button type="button" id="roadZoomIn">＋</button><button type="button" id="roadZoomReset">重置缩放</button><button type="button" id="roadCenter">回到起点</button><button type="button" class="fullscreen-btn" id="roadFullscreen">⛶ 全屏</button>
+    </div>
+    <div class="roadmap-viewport" id="roadViewport">
+      <div class="roadmap-stage" id="roadStage">
+        <svg class="roadmap-lines" id="roadLines" viewBox="0 0 2500 1750" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="roadLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#087f66"/><stop offset="100%" stop-color="#1687e8"/></linearGradient></defs></svg>
+        <div class="road-node root-node" data-road-id="cpp" style="left:1250px;top:100px"><div class="node-kicker">START</div><strong>C++ 与竞赛基础</strong><span>语法 · STL · 复杂度 · 调试</span></div>
+        <div class="road-node node-green" data-road-id="basic" style="left:550px;top:300px"><div class="node-kicker">01 · LANGUAGE</div><strong>C++ 基础</strong><span>变量 · 分支 · 循环 · 函数 · 递归</span></div>
+        <div class="road-node node-green" data-road-id="stl" style="left:1000px;top:300px"><div class="node-kicker">02 · TOOLKIT</div><strong>STL 与复杂度</strong><span>vector · set · map · queue · sort</span></div>
+        <div class="road-node node-green" data-road-id="basicalgo" style="left:1450px;top:300px"><div class="node-kicker">03 · BASIC</div><strong>基础算法</strong><span>枚举 · 模拟 · 排序 · 二分 · 倍增</span></div>
+        <div class="road-node node-blue" data-road-id="linear" style="left:1950px;top:300px"><div class="node-kicker">04 · DATA</div><strong>线性数据结构</strong><span>数组 · 链表 · 栈 · 队列</span></div>
+
+        <div class="road-node node-green" data-road-id="prefix" style="left:350px;top:540px"><div class="node-kicker">05 · OPTIMIZE</div><strong>前缀和 / 差分</strong><span>一维 · 二维 · 树上差分</span></div>
+        <div class="road-node node-green" data-road-id="twoptr" style="left:750px;top:540px"><div class="node-kicker">06 · OPTIMIZE</div><strong>双指针 / 滑动窗口</strong><span>区间维护 · 单调性</span></div>
+        <div class="road-node node-green" data-road-id="recursion" style="left:1150px;top:540px"><div class="node-kicker">07 · SEARCH</div><strong>递归与分治</strong><span>分治 · 递归树 · 主定理直觉</span></div>
+        <div class="road-node node-green" data-road-id="search" style="left:1550px;top:540px"><div class="node-kicker">08 · SEARCH</div><strong>DFS / BFS</strong><span>状态空间 · 迷宫 · 最短步数</span></div>
+        <div class="road-node node-blue" data-road-id="tree" style="left:1950px;top:540px"><div class="node-kicker">09 · STRUCTURE</div><strong>树与二叉树</strong><span>遍历 · BST · 堆 · 优先队列</span></div>
+
+        <div class="road-node node-green" data-road-id="backtrack" style="left:250px;top:780px"><div class="node-kicker">10 · SEARCH</div><strong>回溯与剪枝</strong><span>N 皇后 · 全排列 · 约束搜索</span></div>
+        <div class="road-node node-purple" data-road-id="greedy" style="left:650px;top:780px"><div class="node-kicker">11 · CORE</div><strong>贪心</strong><span>局部最优 · 排序 · 证明</span></div>
+        <div class="road-node node-purple" data-road-id="dp" style="left:1050px;top:780px"><div class="node-kicker">12 · CORE</div><strong>动态规划</strong><span>状态 · 转移 · 记忆化 · 背包</span></div>
+        <div class="road-node node-purple" data-road-id="dp2" style="left:1450px;top:780px"><div class="node-kicker">13 · DP</div><strong>线性 / 区间 / 树形 DP</strong><span>LIS · 区间 · 树上状态</span></div>
+        <div class="road-node node-blue" data-road-id="dsu" style="left:1850px;top:780px"><div class="node-kicker">14 · STRUCTURE</div><strong>并查集</strong><span>连通块 · 合并 · 带权扩展</span></div>
+        <div class="road-node node-blue" data-road-id="graph" style="left:2250px;top:780px"><div class="node-kicker">15 · GRAPH</div><strong>图论基础</strong><span>建图 · DFS · BFS · 连通性</span></div>
+
+        <div class="road-node node-yellow" data-road-id="mathbasic" style="left:350px;top:1020px"><div class="node-kicker">16 · MATH</div><strong>数学基础</strong><span>高精度 · 进制 · 位运算</span></div>
+        <div class="road-node node-yellow" data-road-id="number" style="left:750px;top:1020px"><div class="node-kicker">17 · NUMBER THEORY</div><strong>数论</strong><span>GCD · 素数 · 筛法 · 欧拉函数</span></div>
+        <div class="road-node node-yellow" data-road-id="comb" style="left:1150px;top:1020px"><div class="node-kicker">18 · COMBINATORICS</div><strong>组合数学</strong><span>排列组合 · 容斥 · 鸽巢</span></div>
+        <div class="road-node node-yellow" data-road-id="string" style="left:1550px;top:1020px"><div class="node-kicker">19 · STRING</div><strong>字符串</strong><span>哈希 · Trie · KMP · 回文</span></div>
+        <div class="road-node node-blue" data-road-id="shortest" style="left:1950px;top:1020px"><div class="node-kicker">20 · GRAPH</div><strong>最短路</strong><span>Dijkstra · Bellman-Ford · Floyd</span></div>
+        <div class="road-node node-blue" data-road-id="mst" style="left:2250px;top:1020px"><div class="node-kicker">21 · GRAPH</div><strong>MST / 拓扑</strong><span>Kruskal · Prim · 拓扑排序</span></div>
+
+        <div class="road-node node-blue" data-road-id="advancedtree" style="left:450px;top:1260px"><div class="node-kicker">22 · ADVANCED DS</div><strong>高级树结构</strong><span>线段树 · 树状数组 · 平衡树</span></div>
+        <div class="road-node node-blue" data-road-id="treealgo" style="left:900px;top:1260px"><div class="node-kicker">23 · TREE</div><strong>树上算法</strong><span>LCA · 树链剖分 · 重心</span></div>
+        <div class="road-node node-deep" data-road-id="flow" style="left:1350px;top:1260px"><div class="node-kicker">24 · ADVANCED</div><strong>网络流</strong><span>最大流 · 最小割 · 匹配</span></div>
+        <div class="road-node node-yellow" data-road-id="poly" style="left:1800px;top:1260px"><div class="node-kicker">25 · ADVANCED MATH</div><strong>多项式 / FFT</strong><span>卷积 · NTT · 生成函数</span></div>
+        <div class="road-node node-yellow" data-road-id="game" style="left:2250px;top:1260px"><div class="node-kicker">26 · GAME</div><strong>博弈论</strong><span>必胜态 · Nim · SG 函数</span></div>
+
+        <div class="road-node node-deep" data-road-id="advancedalgo" style="left:700px;top:1510px"><div class="node-kicker">27 · ADVANCED</div><strong>高级算法</strong><span>分治优化 · 倍增 · 莫队 · 随机化</span></div>
+        <div class="road-node node-deep" data-road-id="contest" style="left:1250px;top:1510px"><div class="node-kicker">28 · PRACTICE</div><strong>比赛 · 补题 · 复盘</strong><span>校赛 → ICPC / CCPC → 持续训练</span></div>
+        <div class="road-node node-deep" data-road-id="special" style="left:1800px;top:1510px"><div class="node-kicker">29 · SPECIAL</div><strong>专题与综合</strong><span>计算几何 · 自动机 · 杂项专题</span></div>
+      </div>
+    </div>
+    <div class="roadmap-legend"><span><i class="legend-dot roadmap-green"></i>语言 / 基础 / 搜索</span><span><i class="legend-dot roadmap-blue"></i>数据结构 / 图论</span><span><i class="legend-dot roadmap-purple"></i>核心算法 / DP</span><span><i class="legend-dot roadmap-yellow"></i>数学 / 字符串</span><span><i class="legend-dot roadmap-deep"></i>进阶 / 实战</span></div>
+    <div class="road-note reveal"><b>怎么看这张图：</b>从上往下不是唯一顺序。前期优先掌握 C++、STL、复杂度、枚举模拟、排序、二分、搜索和基础数据结构；之后根据题目需要交叉学习 DP、图论、数学、字符串与高级数据结构。这里按 OI Wiki 的主要知识板块扩展成了 ACM 入门视角，完整知识库仍会持续更新。 <a href="https://oi-wiki.org/" target="_blank" rel="noopener">打开 OI Wiki 知识库 ↗</a></div>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:72px">
+    <div class="eyebrow">03-B · KNOWLEDGE NETWORK</div>
+    <h2>另一种看法：把算法当成一张“关系网”</h2>
+    <p class="section-intro">这一版不强调“先学谁、后学谁”，而是强调知识之间的联系。点击任意算法节点，相关知识会被高亮，并显示它们为什么连在一起。</p>
+  </div>
+
+  <div class="network-map reveal" aria-label="ACM 笨蛋队算法知识关系网络">
+    <div class="network-map-head"><span>ALGORITHM KNOWLEDGE NETWORK</span><small>点击节点 · 查看关系 · 可缩放 / 拖动画布</small></div>
+    <div class="network-workspace">
+      <div class="network-viewport" id="networkViewport">
+        <div class="network-stage" id="networkStage">
+          <svg class="network-lines" id="networkLines" viewBox="0 0 1800 1200" preserveAspectRatio="none"></svg>
+        </div>
+      </div>
+      <aside class="network-panel" id="networkPanel">
+        <div class="panel-kicker">SELECT A NODE</div><h3 id="networkTitle">从一只节点开始</h3><p id="networkDesc">点击左侧任意算法。我们会把与它直接相关的知识点高亮，并在这里列出关系。</p><div class="network-controls"><button type="button" id="networkZoomOut">−</button><button type="button" id="networkZoomReset">100%</button><button type="button" id="networkZoomIn">＋</button><button type="button" id="networkClear">清除选择</button><button type="button" class="fullscreen-btn" id="networkFullscreen">⛶ 全屏</button></div><div class="network-related" id="networkRelated"></div><div class="network-tip">例如点击“二分”，你会看到它和排序、单调性、前缀和、倍增等知识的连接；点击“动态规划”，则会看到背包、树形 DP、记忆化搜索等关系。</div>
+      </aside>
+    </div>
+    <div class="network-legend"><span><i class="legend-dot dot-basic"></i>基础 / 搜索</span><span><i class="legend-dot dot-ds"></i>数据结构 / 图</span><span><i class="legend-dot dot-algo"></i>算法思想 / DP</span><span><i class="legend-dot dot-math"></i>数学 / 字符串</span><span><i class="legend-dot dot-adv"></i>进阶 / 综合</span></div>
+    <div class="network-note"><b>设计思路：</b>算法竞赛不是一条只有一个方向的流水线。比如“二分”依赖排序与单调性，“最短路”会和图论、堆、DP 思想发生联系，“Trie”又可以连接字符串、树结构与异或等专题。关系网就是把这些“为什么要一起学”直接展示出来。 <a href="https://oi-wiki.org/" target="_blank" rel="noopener">知识来源参考 OI Wiki ↗</a></div>
+  </div>
+</section>
+
+<section class="section" id="benefits">
+  <div class="section-head reveal">
+    <div class="eyebrow">04 · Why It Matters</div>
+    <h2>学习算法竞赛，除了做题还能得到什么？</h2>
+    <p class="section-intro">比赛成绩不是全部，但一段持续训练的经历，可以留下比较具体的成果。具体认定方式以学校、赛事和当年的相关规定为准。</p>
+  </div>
+  <div class="benefit-grid">
+    <article class="benefit-card reveal"><div class="benefit-icon">🏆</div><h3>奖项与奖学金</h3><p>参加校赛、蓝桥杯、CCPC、ICPC 等竞赛可能获得名次、奖项或证书；部分学校的奖学金、评奖评优等会按当年政策认定竞赛成果。</p></article>
+    <article class="benefit-card reveal"><div class="benefit-icon">📜</div><h3>证书与可验证成果</h3><p>符合赛事规则并取得成绩后，可以获得相应赛事证书、获奖记录等材料，让“我学过算法”变成更具体的经历。</p></article>
+    <article class="benefit-card reveal"><div class="benefit-icon">💼</div><h3>简历与项目之外的能力证明</h3><p>竞赛经历可以写进简历，用比赛成绩、排名、训练经历说明编程基础、问题分析、调试和持续学习能力。</p></article>
+    <article class="benefit-card reveal"><div class="benefit-icon">🧠</div><h3>真正的算法能力</h3><p>复杂度分析、数据结构、搜索、DP、图论等知识，不只服务比赛，也会帮助你理解程序为什么快、为什么慢，以及如何系统解决问题。</p></article>
+    <article class="benefit-card reveal"><div class="benefit-icon">🤝</div><h3>队友与比赛经历</h3><p>团队训练和正式比赛会让你接触更多同学、题目和代码讨论，逐渐形成自己的学习方法和复盘习惯。</p></article>
+    <article class="benefit-card reveal"><div class="benefit-icon">🚀</div><h3>长期成长记录</h3><p>从一道简单题到完整比赛，再到更复杂的算法专题，你能看到自己的训练轨迹；这本身也是大学阶段一份清晰的成长记录。</p></article>
+  </div>
+  <div class="caveat reveal">注：奖学金、保研/评优、证书认定等并非所有学校和赛事都完全相同。这里展示的是常见价值，具体以惠州学院和对应赛事当年的正式通知、评定办法为准。</div>
+</section>
+
 <section class="section" id="questions">
   <div class="section-head reveal">
-    <div class="eyebrow">02 · Think First</div>
+    <div class="eyebrow">04 · Think First</div>
     <h2>加入之前，先问问自己</h2>
     <p class="section-intro">大学的机会很多：企业项目、科研、论文、社团……算法竞赛只是其中一条路。请如实回答，不需要迎合任何所谓的“标准答案”。</p>
   </div>
@@ -214,7 +407,7 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
 
 <section class="section" id="open">
   <div class="section-head reveal">
-    <div class="eyebrow">03 · Open Questions</div>
+    <div class="eyebrow">05 · Open Questions</div>
     <h2>没有标准答案的开放题</h2>
     <p class="section-intro">这里更关心你如何思考，而不是你是否说出了某个“正确结论”。</p>
   </div>
@@ -236,7 +429,7 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
 
 <section class="section" id="answer">
   <div class="section-head reveal">
-    <div class="eyebrow">04 · Your Voice</div>
+    <div class="eyebrow">06 · Your Voice</div>
     <h2>写下你的答案</h2>
     <p class="section-intro">以上问题几乎不会影响筛选标准。笨蛋队欢迎每一个对算法竞赛保有热情、想要学习提升自我的人。</p>
   </div>
@@ -311,7 +504,7 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
 
 <section class="section" id="preview" style="display:none">
   <div class="section-head">
-    <div class="eyebrow">05 · READY TO SEND</div>
+    <div class="eyebrow">07 · READY TO SEND</div>
     <h2>你的回答已经整理好了</h2>
     <p class="section-intro">复制下面这段信息，然后私发给招新负责人即可。页面不会自动提交或发送任何信息。</p>
   </div>
@@ -471,6 +664,271 @@ $('#downloadJsonBtn').addEventListener('click',()=>{
   a.download=name+'_ACM笨蛋队.json'; a.click(); URL.revokeObjectURL(a.href);
 });
 $('#backBtn').addEventListener('click',()=>$('#answer').scrollIntoView({behavior:'smooth'}));
+
+// ===== 小算法体验：巴什博弈 =====
+let bashStones=21, bashOver=false;
+function renderBash(){
+  const row=$('#stoneRow'); row.innerHTML='';
+  for(let i=0;i<bashStones;i++){const d=document.createElement('span');d.className='stone';row.appendChild(d)}
+  $('#bashStatus').textContent=bashOver?'点击“重新开始”再来一局。':'轮到你了，请选择拿几根。';
+}
+function computerTake(){
+  if(bashStones<=0)return;
+  let take=bashStones%4;
+  if(take===0) take=Math.min(1+Math.floor(Math.random()*3),bashStones);
+  bashStones-=take;
+  if(bashStones===0){bashOver=true;$('#bashStatus').textContent='电脑拿走最后一根。你输了，再试一次看看能不能找到规律！';}
+  else $('#bashStatus').textContent='电脑拿了 '+take+' 根，还剩 '+bashStones+' 根。轮到你了。';
+  renderBash();
+}
+$$('.bash-take').forEach(btn=>btn.addEventListener('click',()=>{
+  if(bashOver)return; const take=Number(btn.dataset.take); if(take>bashStones)return;
+  bashStones-=take;
+  if(bashStones===0){bashOver=true;$('#bashStatus').textContent='你拿走了最后一根！恭喜获胜 🎉';renderBash();return;}
+  $('#bashStatus').textContent='你拿了 '+take+' 根，电脑思考中……'; renderBash(); setTimeout(computerTake,450);
+}));
+$('#bashReset').addEventListener('click',()=>{bashStones=21;bashOver=false;renderBash()});
+renderBash();
+
+// ===== 小算法体验：6×6 狗狗数独 =====
+const dog='🐶';
+const dogColors=['薄荷绿','天空蓝','奶油黄','薰衣草紫','樱花红','葡萄紫'];
+// 每一行、每一列、每一种颜色各放一只；同时狗狗之间不能共享八邻域。
+const dogRegions=[
+  1,1,2,2,3,3,
+  1,2,2,2,3,3,
+  1,4,2,3,3,3,
+  4,4,4,5,3,3,
+  4,4,5,5,5,6,
+  4,4,5,5,6,6
+];
+// 一个满足全部约束的解：每行、每列、每种颜色恰好一只狗，且狗之间不相邻。
+const dogSolution=[
+  1,0,0,0,0,0,
+  0,0,1,0,0,0,
+  0,0,0,0,1,0,
+  0,1,0,0,0,0,
+  0,0,0,1,0,0,
+  0,0,0,0,0,1
+];
+let dogBoard=Array(36).fill(0), dogSelected=-1;
+function dogPos(i){return [Math.floor(i/6),i%6]}
+function dogCanPlace(i){
+  const [r,c]=dogPos(i), color=dogRegions[i];
+  for(let j=0;j<36;j++){
+    if(!dogBoard[j]) continue;
+    const [rr,cc]=dogPos(j);
+    if(rr===r || cc===c || dogRegions[j]===color || Math.max(Math.abs(rr-r),Math.abs(cc-c))===1) return false;
+  }
+  return true;
+}
+function dogBlocked(i){
+  if(dogBoard[i]) return false;
+  return !dogCanPlace(i);
+}
+function dogSolved(){
+  const dogs=dogBoard.reduce((a,b)=>a+b,0);
+  if(dogs!==6) return false;
+  for(let i=0;i<36;i++) if(dogBoard[i] && !dogCanPlaceIgnoringSelf(i)) return false;
+  return true;
+}
+function dogCanPlaceIgnoringSelf(i){
+  const [r,c]=dogPos(i), color=dogRegions[i];
+  for(let j=0;j<36;j++){
+    if(j===i || !dogBoard[j]) continue;
+    const [rr,cc]=dogPos(j);
+    if(rr===r || cc===c || dogRegions[j]===color || Math.max(Math.abs(rr-r),Math.abs(cc-c))===1) return false;
+  }
+  return true;
+}
+function renderDogLegend(){
+  const box=$('#dogLegend'); if(!box)return; box.innerHTML='';
+  dogColors.forEach((name,i)=>{const s=document.createElement('span');s.innerHTML='<i class="legend-dot c'+i+'"></i>'+name;box.appendChild(s)})
+}
+function renderSudoku(){
+  const board=$('#sudokuBoard'); board.innerHTML='';
+  dogBoard.forEach((v,i)=>{
+    const d=document.createElement('button'); d.type='button'; d.className='dog-cell c'+(dogRegions[i]-1);
+    const blocked=dogBlocked(i);
+    if(i===dogSelected) d.classList.add('selected');
+    if(blocked) d.classList.add('dog-blocked');
+    d.innerHTML=v?'<span class="dog-mark">'+dog+'</span>':(blocked?'<span class="dog-cross">×</span>':'');
+    d.title=v?'点击可移除这只狗狗':(blocked?'根据当前约束不可放置':'点击选择这个位置');
+    d.addEventListener('click',()=>{
+      if(v){ dogBoard[i]=0; dogSelected=-1; renderSudoku(); return; }
+      if(blocked){ toast('这个位置现在不能放狗狗 ✕'); return; }
+      dogSelected=i; renderSudoku();
+    });
+    board.appendChild(d);
+  });
+  if(dogSolved()) $('#sudokuStatus').textContent='完成啦！6 种颜色、6 行、6 列和八邻域约束全部满足 🎉';
+  else if(dogSelected>=0) $('#sudokuStatus').textContent='已选择第 '+(Math.floor(dogSelected/6)+1)+' 行第 '+(dogSelected%6+1)+' 列。点击“放置狗狗”即可。';
+  else $('#sudokuStatus').textContent='棋盘是空的！先自己找一个位置，放下第一只狗狗；之后不可用格会自动打叉。';
+}
+const dogButton=document.createElement('button');
+dogButton.type='button'; dogButton.textContent='放置狗狗';
+dogButton.addEventListener('click',()=>{
+  if(dogSelected<0){toast('先选择一个可以放置的格子 ✦');return;}
+  if(!dogCanPlace(dogSelected)){toast('这个位置不满足当前约束 ✕');return;}
+  dogBoard[dogSelected]=1; dogSelected=-1; renderSudoku();
+});
+$('#symbolButtons').appendChild(dogButton);
+$('#sudokuReset').addEventListener('click',()=>{dogBoard=Array(36).fill(0);dogSelected=-1;renderSudoku()});
+renderDogLegend(); renderSudoku();
+
+// ===== 两张知识图支持全屏 =====
+function toggleFullscreen(el){
+  if(!document.fullscreenElement && !(document.webkitFullscreenElement)){
+    const fn=el.requestFullscreen || el.webkitRequestFullscreen;
+    if(fn) fn.call(el);
+  }else{
+    const fn=document.exitFullscreen || document.webkitExitFullscreen;
+    if(fn) fn.call(document);
+  }
+}
+function updateFullscreenButtons(){
+  const fs=document.fullscreenElement || document.webkitFullscreenElement;
+  const road=document.getElementById('roadFullscreen'), network=document.getElementById('networkFullscreen');
+  if(road) road.textContent=fs===document.querySelector('.roadmap-map')?'⛶ 退出全屏':'⛶ 全屏';
+  if(network) network.textContent=fs===document.querySelector('.network-map')?'⛶ 退出全屏':'⛶ 全屏';
+}
+document.addEventListener('fullscreenchange',updateFullscreenButtons);
+document.addEventListener('webkitfullscreenchange',updateFullscreenButtons);
+
+// ===== 第一版：学习路线图——缩放 + 鼠标拖动 + 根节点居中 =====
+(function(){
+  const stage=document.getElementById('roadStage'), viewport=document.getElementById('roadViewport');
+  if(!stage||!viewport)return;
+  const svg=document.getElementById('roadLines');
+  const nodes=[...stage.querySelectorAll('.road-node')];
+  const edges=[
+    ['cpp','basic'],['cpp','stl'],['cpp','basicalgo'],['cpp','linear'],
+    ['basic','prefix'],['basic','twoptr'],['stl','recursion'],['stl','search'],['basicalgo','search'],['basicalgo','tree'],['linear','tree'],
+    ['search','backtrack'],['search','greedy'],['search','dp'],['tree','dsu'],['tree','graph'],
+    ['greedy','dp'],['dp','dp2'],['dp','number'],['dp','comb'],['dsu','graph'],['graph','shortest'],['graph','mst'],
+    ['mathbasic','number'],['mathbasic','comb'],['string','dp2'],['shortest','mst'],['tree','advancedtree'],['tree','treealgo'],
+    ['advancedtree','treealgo'],['treealgo','flow'],['number','poly'],['comb','poly'],['string','poly'],['game','contest'],
+    ['flow','special'],['poly','special'],['advancedtree','advancedalgo'],['dp2','advancedalgo'],['advancedalgo','contest'],['special','contest'],
+    ['number','game'],['search','contest'],['greedy','contest'],['shortest','contest'],['mst','contest'],['contest','special'],
+    ['prefix','dp'],['twoptr','greedy'],['recursion','backtrack'],['stl','mathbasic'],['basicalgo','mathbasic']
+  ];
+  const map={};nodes.forEach(n=>map[n.dataset.roadId]=n);
+  const center=n=>[parseFloat(n.style.left),parseFloat(n.style.top)];
+  edges.forEach(([a,b],i)=>{const A=map[a],B=map[b];if(!A||!B)return;const [x1,y1]=center(A),[x2,y2]=center(B);const dx=Math.max(70,Math.abs(x2-x1)*.35);const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('class','road-line'+(i<4?' main':''));path.setAttribute('d',`M ${x1} ${y1} C ${x1+(x2>x1?dx:-dx)} ${y1}, ${x2-(x2>x1?dx:-dx)} ${y2}, ${x2} ${y2}`);svg.appendChild(path);});
+
+  let scale=1;
+  const apply=()=>{
+    stage.style.transform=`scale(${scale})`;
+    document.getElementById('roadScale').textContent=Math.round(scale*100)+'%';
+  };
+
+  // 让根节点在初始状态正中央；这里直接计算滚动位置，而不是依赖浏览器默认左上角。
+  const centerRoot=()=>{
+    const root=map.cpp;
+    if(!root)return;
+    const x=parseFloat(root.style.left)*scale;
+    const y=parseFloat(root.style.top)*scale;
+    viewport.scrollLeft=Math.max(0,x-viewport.clientWidth/2);
+    viewport.scrollTop=Math.max(0,y-viewport.clientHeight/2);
+  };
+
+  document.getElementById('roadZoomIn').onclick=()=>{scale=Math.min(1.35,scale+.1);apply();centerRoot()};
+  document.getElementById('roadZoomOut').onclick=()=>{scale=Math.max(.55,scale-.1);apply();centerRoot()};
+  document.getElementById('roadZoomReset').onclick=()=>{scale=1;apply();centerRoot()};
+  document.getElementById('roadCenter').onclick=()=>{scale=1;apply();centerRoot()};
+  document.getElementById('roadFullscreen').onclick=()=>toggleFullscreen(document.querySelector('.roadmap-map'));
+
+  // 按住鼠标左键拖动整张学习路线图；不使用浏览器横向/纵向滚动条作为主要交互。
+  let dragging=false, moved=false, startX=0, startY=0, startLeft=0, startTop=0;
+  viewport.addEventListener('mousedown',e=>{
+    if(e.button!==0)return;
+    if(e.target.closest('.road-node'))return;
+    dragging=true; moved=false; startX=e.clientX; startY=e.clientY;
+    startLeft=viewport.scrollLeft; startTop=viewport.scrollTop;
+    viewport.classList.add('dragging');
+    stage.classList.add('dragging');
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove',e=>{
+    if(!dragging)return;
+    const dx=e.clientX-startX, dy=e.clientY-startY;
+    if(Math.abs(dx)+Math.abs(dy)>3)moved=true;
+    viewport.scrollLeft=startLeft-dx;
+    viewport.scrollTop=startTop-dy;
+  });
+  window.addEventListener('mouseup',()=>{
+    if(!dragging)return;
+    dragging=false; viewport.classList.remove('dragging'); stage.classList.remove('dragging');
+  });
+  viewport.addEventListener('mouseleave',()=>{
+    if(!dragging)return;
+  });
+  viewport.addEventListener('wheel',e=>{
+    // 普通滚轮仍可纵向浏览；按住 Ctrl 时进行缩放。
+    if(e.ctrlKey){
+      e.preventDefault();
+      const old=scale;
+      scale=Math.max(.55,Math.min(1.35,scale+(e.deltaY<0?.08:-.08)));
+      if(scale!==old)apply();
+    }
+  },{passive:false});
+
+  nodes.forEach(n=>n.addEventListener('click',()=>{
+    if(moved)return;
+    n.animate([{transform:'translate(-50%,-50%) scale(1)'},{transform:'translate(-50%,-50%) scale(1.06)'},{transform:'translate(-50%,-50%) scale(1)'}],{duration:280});
+  }));
+
+  apply();
+  // 等布局完成后再居中，确保 viewport.clientWidth/clientHeight 已经是最终尺寸。
+  requestAnimationFrame(()=>requestAnimationFrame(centerRoot));
+  window.addEventListener('resize',()=>centerRoot());
+})();
+
+// ===== 第二版：人际关系网式算法知识图 =====
+(function(){
+  const stage=document.getElementById('networkStage'), viewport=document.getElementById('networkViewport');
+  if(!stage||!viewport)return;
+  const NS='http://www.w3.org/2000/svg', svg=document.getElementById('networkLines');
+  const data=[
+    ['cpp','C++','语言','基础'],['stl','STL','工具','基础'],['complex','复杂度','分析','基础'],['sort','排序','基础算法','基础'],['binary','二分','基础算法','基础'],['prefix','前缀和','技巧','基础'],['twoptr','双指针','技巧','基础'],['dfs','DFS','搜索','基础'],['bfs','BFS','搜索','基础'],['backtrack','回溯','搜索','基础'],
+    ['array','数组','数据结构','数据'],['stack','栈','数据结构','数据'],['queue','队列','数据结构','数据'],['heap','堆','数据结构','数据'],['tree','树','数据结构','数据'],['dsu','并查集','数据结构','数据'],['seg','线段树','数据结构','数据'],['bit','树状数组','数据结构','数据'],
+    ['graph','图论','图','数据'],['shortest','最短路','图','数据'],['mst','最小生成树','图','数据'],['topo','拓扑排序','图','数据'],['flow','网络流','图','进阶'],
+    ['greedy','贪心','算法思想','算法'],['dp','动态规划','算法思想','算法'],['knap','背包 DP','DP','算法'],['lis','LIS','DP','算法'],['interval','区间 DP','DP','算法'],['treeDP','树形 DP','DP','算法'],['divide','分治','算法思想','算法'],
+    ['math','数学基础','数学','数学'],['gcd','GCD','数论','数学'],['prime','素数 / 筛法','数论','数学'],['comb','组合数学','数学','数学'],['bitop','位运算','数学','数学'],['game','博弈论','数学','数学'],
+    ['string','字符串','字符串','数学'],['hash','字符串哈希','字符串','数学'],['trie','Trie','字符串 / 树','数学'],['kmp','KMP','字符串','数学'],['pal','回文','字符串','数学'],
+    ['lca','LCA','树上算法','进阶'],['hld','树链剖分','树上算法','进阶'],['fft','FFT / NTT','多项式','进阶'],['mo','莫队','离线算法','进阶'],['random','随机化','算法技巧','进阶'],['contest','比赛与复盘','综合','进阶']
+  ];
+  const pos={cpp:[850,90],stl:[680,190],complex:[1020,190],sort:[430,300],binary:[650,330],prefix:[880,300],twoptr:[1110,320],dfs:[1370,220],bfs:[1510,330],backtrack:[1320,470],array:[260,520],stack:[430,560],queue:[600,510],heap:[770,540],tree:[930,520],dsu:[1100,560],seg:[720,740],bit:[900,760],graph:[1160,730],shortest:[1320,650],mst:[1510,690],topo:[1670,600],flow:[1690,850],greedy:[450,850],dp:[700,900],knap:[850,1040],lis:[1030,930],interval:[1160,1060],treeDP:[1300,940],divide:[310,1000],math:[250,200],gcd:[130,350],prime:[230,430],comb:[360,430],bitop:[80,540],game:[270,690],string:[1680,170],hash:[1600,420],trie:[1740,500],kmp:[1540,540],pal:[1710,670],lca:[1080,820],hld:[1210,880],fft:[1490,1020],mo:[1580,960],random:[420,1120],contest:[900,1160]};
+  const desc={
+    binary:'在有序或具有单调性的空间里不断缩小答案范围；常和排序、单调性、答案判定结合。',
+    dp:'把原问题拆成有重叠的子问题，通过状态与转移避免重复计算。',
+    shortest:'把“从这里走到那里”的问题建成图，再根据边权选择合适的最短路算法。',
+    trie:'用树形结构表示字符串前缀，适合前缀查询，也能和位运算、异或问题结合。',
+    greedy:'每一步做局部选择，但必须找到为什么局部选择最终不会破坏全局最优的证明。',
+    seg:'把区间信息组织成树，支持区间查询与修改，是竞赛中非常常见的高级数据结构。',
+    contest:'知识最终要回到题目：训练、比赛、补题、复盘，再根据错题反推下一轮学习。'
+  };
+  const links=[
+    ['cpp','stl'],['cpp','complex'],['stl','sort'],['stl','array'],['complex','binary'],['sort','binary'],['sort','prefix'],['binary','prefix'],['prefix','twoptr'],['twoptr','greedy'],['dfs','bfs'],['dfs','backtrack'],['bfs','graph'],['backtrack','dp'],
+    ['array','stack'],['array','queue'],['heap','shortest'],['tree','heap'],['tree','dsu'],['tree','seg'],['tree','lca'],['seg','bit'],['graph','shortest'],['graph','mst'],['graph','topo'],['shortest','dp'],['mst','dsu'],['topo','dp'],['flow','graph'],
+    ['greedy','dp'],['dp','knap'],['dp','lis'],['dp','interval'],['dp','treeDP'],['divide','dp'],['treeDP','tree'],['lca','hld'],['hld','seg'],
+    ['math','gcd'],['math','prime'],['math','comb'],['math','bitop'],['math','game'],['string','hash'],['string','trie'],['string','kmp'],['string','pal'],['trie','bitop'],['hash','binary'],['kmp','dp'],['pal','dp'],
+    ['prime','gcd'],['comb','dp'],['game','dp'],['fft','dp'],['fft','string'],['mo','seg'],['mo','bit'],['random','hash'],['random','contest'],['contest','dp'],['contest','graph'],['contest','string'],['contest','math'],['contest','seg']
+  ];
+  const map={};
+  data.forEach(([id,name,sub,cat])=>{map[id]={id,name,sub,cat,pos:pos[id]};const d=document.createElement('button');d.type='button';d.className='network-node';d.dataset.id=id;d.style.left=pos[id][0]+'px';d.style.top=pos[id][1]+'px';d.innerHTML=`<strong>${name}</strong><small>${sub}</small>`;stage.appendChild(d);map[id].el=d;});
+  links.forEach(([a,b])=>{const [x1,y1]=pos[a], [x2,y2]=pos[b];const p=document.createElementNS(NS,'path');p.classList.add('network-edge');p.dataset.a=a;p.dataset.b=b;p.setAttribute('d',`M ${x1} ${y1} C ${(x1+x2)/2} ${y1}, ${(x1+x2)/2} ${y2}, ${x2} ${y2}`);svg.appendChild(p);});
+  const related=id=>{const s=new Set();links.forEach(([a,b])=>{if(a===id)s.add(b);if(b===id)s.add(a)});return [...s]};
+  let current=null,scale=1,drag=false,startX=0,startY=0,baseX=0,baseY=0;
+  const apply=()=>{stage.style.transform=`translate(${baseX}px,${baseY}px) scale(${scale})`;document.getElementById('networkZoomReset').textContent=Math.round(scale*100)+'%'};
+  const select=id=>{current=id;const rel=new Set(related(id));Object.values(map).forEach(o=>{o.el.classList.toggle('focus',o.id===id);o.el.classList.toggle('related',rel.has(o.id));o.el.classList.toggle('dim',o.id!==id&&!rel.has(o.id))});svg.querySelectorAll('.network-edge').forEach(e=>{const active=e.dataset.a===id||e.dataset.b===id;e.classList.toggle('active',active);e.classList.toggle('dim',!active)});const o=map[id];document.getElementById('networkTitle').textContent=o.name;document.getElementById('networkPanel').querySelector('.panel-kicker').textContent=o.cat.toUpperCase();document.getElementById('networkDesc').textContent=desc[id]||`“${o.name}”属于${o.cat}方向，常与 ${related(id).map(x=>map[x].name).slice(0,4).join('、')} 等知识一起出现。`;const box=document.getElementById('networkRelated');box.innerHTML='';related(id).forEach(r=>{const b=document.createElement('button');b.textContent=map[r].name;b.onclick=()=>select(r);box.appendChild(b)});};
+  const clear=()=>{current=null;Object.values(map).forEach(o=>o.el.classList.remove('focus','related','dim'));svg.querySelectorAll('.network-edge').forEach(e=>e.classList.remove('active','dim'));document.getElementById('networkTitle').textContent='从一只节点开始';document.getElementById('networkDesc').textContent='点击左侧任意算法。我们会把与它直接相关的知识点高亮，并在这里列出关系。';document.getElementById('networkRelated').innerHTML=''};
+  Object.values(map).forEach(o=>o.el.addEventListener('click',e=>{e.stopPropagation();select(o.id)}));
+  document.getElementById('networkZoomIn').onclick=()=>{scale=Math.min(1.5,scale+.1);apply()};document.getElementById('networkZoomOut').onclick=()=>{scale=Math.max(.65,scale-.1);apply()};document.getElementById('networkZoomReset').onclick=()=>{scale=1;baseX=0;baseY=0;apply()};document.getElementById('networkClear').onclick=clear;document.getElementById('networkFullscreen').onclick=()=>toggleFullscreen(document.querySelector('.network-map'));
+  viewport.addEventListener('mousedown',e=>{if(e.target.closest('.network-node'))return;drag=true;viewport.classList.add('dragging');startX=e.clientX;startY=e.clientY;baseX=baseX;baseY=baseY});window.addEventListener('mousemove',e=>{if(!drag)return;baseX+=(e.clientX-startX);baseY+=(e.clientY-startY);startX=e.clientX;startY=e.clientY;apply()});window.addEventListener('mouseup',()=>{drag=false;viewport.classList.remove('dragging')});
+  viewport.addEventListener('wheel',e=>{e.preventDefault();scale=Math.max(.65,Math.min(1.5,scale+(e.deltaY<0?.08:-.08)));apply()},{passive:false});
+  apply();clear();
+})();
 </script>
 </body>
 </html>
