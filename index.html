@@ -167,6 +167,19 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
 @media(max-width:900px){.roadmap-canvas{min-height:560px}.road-node{width:132px;min-height:64px;padding:8px 9px}.road-node strong{font-size:12px}.road-node span{font-size:9px}.root-node{width:180px}.finish-node{width:165px}}
 @media(max-width:700px){.roadmap-map{padding:14px;border-radius:22px}.roadmap-map-head{display:block;padding-bottom:8px}.roadmap-map-head small{display:block;margin-top:4px}.roadmap-canvas{min-height:520px;overflow-x:auto;overflow-y:hidden}.road-node{width:118px;min-height:60px;padding:7px}.road-node strong{font-size:11px}.road-node span{font-size:8px}.root-node{width:160px}.root-node strong{font-size:14px}.root-node span{font-size:9px}.finish-node{width:150px}}
 @media(max-width:560px){.dog-board{grid-template-columns:repeat(6,42px);grid-template-rows:repeat(6,42px)}.dog-cell{width:42px;height:42px;font-size:20px}.dog-cell .dog-mark{font-size:20px}}
+
+/* ===== 路线图简洁树形版 ===== */
+.roadmap-viewport{height:560px;overflow:hidden;cursor:grab}
+.roadmap-stage{width:1800px;height:1120px}
+.roadmap-lines{width:1800px;height:1120px}
+.road-line{stroke:rgba(22,135,232,.28);stroke-width:2.4}
+.road-node{width:170px;min-height:72px;padding:9px 12px;border-radius:14px;box-shadow:0 7px 18px rgba(4,83,70,.07)}
+.root-node{width:220px;min-height:86px}
+.root-node strong{font-size:17px}
+.finish-node{width:205px;min-height:78px}
+.roadmap-map{padding:16px;border-radius:24px}
+.roadmap-legend{margin-bottom:9px}
+@media(max-width:700px){.roadmap-viewport{height:500px}.roadmap-stage{width:1800px}.road-node{width:150px}.root-node{width:190px}.finish-node{width:180px}}
 </style>
 </head>
 <body>
@@ -291,55 +304,38 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
     <p class="section-intro">参考 OI Wiki 的学习路线，把 C++、基础算法、数据结构、搜索、DP、图论、字符串、数学以及更进阶的专题展开成一张“知识地图”。它不是要求新人一次学完的课表，而是一张可以长期回看的导航图。OI Wiki 本身也把学习路线定位为新手指南与复习清单。 <a href="https://oi-wiki.org/contest/roadmap/" target="_blank" rel="noopener">查看 OI Wiki ↗</a></p>
   </div>
 
-  <div class="roadmap-map reveal" aria-label="ACM 笨蛋队详细算法竞赛学习路线图">
-    <div class="roadmap-map-head"><span>LEARNING MAP · EXPANDED</span><small>按住鼠标拖动浏览 · 滚轮缩放 · 点击节点查看提示</small></div>
+  <div class="roadmap-map reveal" aria-label="ACM 笨蛋队算法竞赛学习路线图">
+    <div class="roadmap-map-head"><span>LEARNING ROADMAP</span><small>树形路线 · 按住鼠标拖动 · 滚轮缩放 · 点击节点查看提示</small></div>
     <div class="roadmap-toolbar">
-      <button type="button" id="roadZoomOut">−</button><span class="roadmap-scale" id="roadScale">100%</span><button type="button" id="roadZoomIn">＋</button><button type="button" id="roadZoomReset">重置缩放</button><button type="button" id="roadCenter">回到起点</button><button type="button" class="fullscreen-btn" id="roadFullscreen">⛶ 全屏</button>
+      <button type="button" id="roadZoomOut">−</button><span class="roadmap-scale" id="roadScale">100%</span><button type="button" id="roadZoomIn">＋</button><button type="button" id="roadZoomReset">重置缩放</button><button type="button" id="roadCenter">居中根节点</button><button type="button" class="fullscreen-btn" id="roadFullscreen">⛶ 全屏</button>
     </div>
     <div class="roadmap-viewport" id="roadViewport">
       <div class="roadmap-stage" id="roadStage">
-        <svg class="roadmap-lines" id="roadLines" viewBox="0 0 2500 1750" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="roadLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#087f66"/><stop offset="100%" stop-color="#1687e8"/></linearGradient></defs></svg>
-        <div class="road-node root-node" data-road-id="cpp" style="left:1250px;top:100px"><div class="node-kicker">START</div><strong>C++ 与竞赛基础</strong><span>语法 · STL · 复杂度 · 调试</span></div>
-        <div class="road-node node-green" data-road-id="basic" style="left:550px;top:300px"><div class="node-kicker">01 · LANGUAGE</div><strong>C++ 基础</strong><span>变量 · 分支 · 循环 · 函数 · 递归</span></div>
-        <div class="road-node node-green" data-road-id="stl" style="left:1000px;top:300px"><div class="node-kicker">02 · TOOLKIT</div><strong>STL 与复杂度</strong><span>vector · set · map · queue · sort</span></div>
-        <div class="road-node node-green" data-road-id="basicalgo" style="left:1450px;top:300px"><div class="node-kicker">03 · BASIC</div><strong>基础算法</strong><span>枚举 · 模拟 · 排序 · 二分 · 倍增</span></div>
-        <div class="road-node node-blue" data-road-id="linear" style="left:1950px;top:300px"><div class="node-kicker">04 · DATA</div><strong>线性数据结构</strong><span>数组 · 链表 · 栈 · 队列</span></div>
+        <svg class="roadmap-lines" id="roadLines" viewBox="0 0 1800 1120" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div class="road-node root-node" data-road-id="cpp" style="left:900px;top:78px"><div class="node-kicker">START</div><strong>C++ 与竞赛基础</strong><span>语法 · STL · 复杂度 · 调试</span></div>
 
-        <div class="road-node node-green" data-road-id="prefix" style="left:350px;top:540px"><div class="node-kicker">05 · OPTIMIZE</div><strong>前缀和 / 差分</strong><span>一维 · 二维 · 树上差分</span></div>
-        <div class="road-node node-green" data-road-id="twoptr" style="left:750px;top:540px"><div class="node-kicker">06 · OPTIMIZE</div><strong>双指针 / 滑动窗口</strong><span>区间维护 · 单调性</span></div>
-        <div class="road-node node-green" data-road-id="recursion" style="left:1150px;top:540px"><div class="node-kicker">07 · SEARCH</div><strong>递归与分治</strong><span>分治 · 递归树 · 主定理直觉</span></div>
-        <div class="road-node node-green" data-road-id="search" style="left:1550px;top:540px"><div class="node-kicker">08 · SEARCH</div><strong>DFS / BFS</strong><span>状态空间 · 迷宫 · 最短步数</span></div>
-        <div class="road-node node-blue" data-road-id="tree" style="left:1950px;top:540px"><div class="node-kicker">09 · STRUCTURE</div><strong>树与二叉树</strong><span>遍历 · BST · 堆 · 优先队列</span></div>
+        <div class="road-node node-green" data-road-id="basic" style="left:315px;top:255px"><div class="node-kicker">01 · BASE</div><strong>C++ 基础</strong><span>变量 · 分支 · 循环 · 函数</span></div>
+        <div class="road-node node-green" data-road-id="algo" style="left:705px;top:255px"><div class="node-kicker">02 · ALGORITHM</div><strong>基础算法</strong><span>枚举 · 模拟 · 排序 · 二分</span></div>
+        <div class="road-node node-blue" data-road-id="ds" style="left:1095px;top:255px"><div class="node-kicker">03 · DATA</div><strong>基础数据结构</strong><span>数组 · 栈队列 · 堆 · 并查集</span></div>
+        <div class="road-node node-yellow" data-road-id="math" style="left:1485px;top:255px"><div class="node-kicker">04 · MATH</div><strong>数学与字符串</strong><span>数论 · 组合 · 哈希 · Trie</span></div>
 
-        <div class="road-node node-green" data-road-id="backtrack" style="left:250px;top:780px"><div class="node-kicker">10 · SEARCH</div><strong>回溯与剪枝</strong><span>N 皇后 · 全排列 · 约束搜索</span></div>
-        <div class="road-node node-purple" data-road-id="greedy" style="left:650px;top:780px"><div class="node-kicker">11 · CORE</div><strong>贪心</strong><span>局部最优 · 排序 · 证明</span></div>
-        <div class="road-node node-purple" data-road-id="dp" style="left:1050px;top:780px"><div class="node-kicker">12 · CORE</div><strong>动态规划</strong><span>状态 · 转移 · 记忆化 · 背包</span></div>
-        <div class="road-node node-purple" data-road-id="dp2" style="left:1450px;top:780px"><div class="node-kicker">13 · DP</div><strong>线性 / 区间 / 树形 DP</strong><span>LIS · 区间 · 树上状态</span></div>
-        <div class="road-node node-blue" data-road-id="dsu" style="left:1850px;top:780px"><div class="node-kicker">14 · STRUCTURE</div><strong>并查集</strong><span>连通块 · 合并 · 带权扩展</span></div>
-        <div class="road-node node-blue" data-road-id="graph" style="left:2250px;top:780px"><div class="node-kicker">15 · GRAPH</div><strong>图论基础</strong><span>建图 · DFS · BFS · 连通性</span></div>
+        <div class="road-node node-green" data-road-id="search" style="left:255px;top:470px"><div class="node-kicker">05 · SEARCH</div><strong>搜索</strong><span>DFS · BFS · 回溯 · 剪枝</span></div>
+        <div class="road-node node-purple" data-road-id="dp" style="left:585px;top:470px"><div class="node-kicker">06 · CORE</div><strong>贪心与 DP</strong><span>贪心 · 背包 · LIS · 区间 DP</span></div>
+        <div class="road-node node-blue" data-road-id="graph" style="left:915px;top:470px"><div class="node-kicker">07 · GRAPH</div><strong>图论</strong><span>最短路 · MST · 拓扑 · 连通性</span></div>
+        <div class="road-node node-blue" data-road-id="tree" style="left:1245px;top:470px"><div class="node-kicker">08 · TREE</div><strong>树上算法</strong><span>LCA · 树链剖分 · 树形 DP</span></div>
+        <div class="road-node node-yellow" data-road-id="string" style="left:1575px;top:470px"><div class="node-kicker">09 · STRING</div><strong>字符串算法</strong><span>KMP · Trie · 字符串哈希</span></div>
 
-        <div class="road-node node-yellow" data-road-id="mathbasic" style="left:350px;top:1020px"><div class="node-kicker">16 · MATH</div><strong>数学基础</strong><span>高精度 · 进制 · 位运算</span></div>
-        <div class="road-node node-yellow" data-road-id="number" style="left:750px;top:1020px"><div class="node-kicker">17 · NUMBER THEORY</div><strong>数论</strong><span>GCD · 素数 · 筛法 · 欧拉函数</span></div>
-        <div class="road-node node-yellow" data-road-id="comb" style="left:1150px;top:1020px"><div class="node-kicker">18 · COMBINATORICS</div><strong>组合数学</strong><span>排列组合 · 容斥 · 鸽巢</span></div>
-        <div class="road-node node-yellow" data-road-id="string" style="left:1550px;top:1020px"><div class="node-kicker">19 · STRING</div><strong>字符串</strong><span>哈希 · Trie · KMP · 回文</span></div>
-        <div class="road-node node-blue" data-road-id="shortest" style="left:1950px;top:1020px"><div class="node-kicker">20 · GRAPH</div><strong>最短路</strong><span>Dijkstra · Bellman-Ford · Floyd</span></div>
-        <div class="road-node node-blue" data-road-id="mst" style="left:2250px;top:1020px"><div class="node-kicker">21 · GRAPH</div><strong>MST / 拓扑</strong><span>Kruskal · Prim · 拓扑排序</span></div>
+        <div class="road-node node-blue" data-road-id="advanced" style="left:430px;top:690px"><div class="node-kicker">10 · ADVANCED DS</div><strong>高级数据结构</strong><span>线段树 · 树状数组 · 平衡树</span></div>
+        <div class="road-node node-deep" data-road-id="flow" style="left:790px;top:690px"><div class="node-kicker">11 · ADVANCED</div><strong>网络流与匹配</strong><span>最大流 · 最小割 · 二分图</span></div>
+        <div class="road-node node-yellow" data-road-id="number" style="left:1150px;top:690px"><div class="node-kicker">12 · ADVANCED MATH</div><strong>进阶数学</strong><span>FFT / NTT · 生成函数 · 博弈</span></div>
+        <div class="road-node node-deep" data-road-id="special" style="left:1510px;top:690px"><div class="node-kicker">13 · SPECIAL</div><strong>专题算法</strong><span>分治 · 莫队 · 随机化 · 几何</span></div>
 
-        <div class="road-node node-blue" data-road-id="advancedtree" style="left:450px;top:1260px"><div class="node-kicker">22 · ADVANCED DS</div><strong>高级树结构</strong><span>线段树 · 树状数组 · 平衡树</span></div>
-        <div class="road-node node-blue" data-road-id="treealgo" style="left:900px;top:1260px"><div class="node-kicker">23 · TREE</div><strong>树上算法</strong><span>LCA · 树链剖分 · 重心</span></div>
-        <div class="road-node node-deep" data-road-id="flow" style="left:1350px;top:1260px"><div class="node-kicker">24 · ADVANCED</div><strong>网络流</strong><span>最大流 · 最小割 · 匹配</span></div>
-        <div class="road-node node-yellow" data-road-id="poly" style="left:1800px;top:1260px"><div class="node-kicker">25 · ADVANCED MATH</div><strong>多项式 / FFT</strong><span>卷积 · NTT · 生成函数</span></div>
-        <div class="road-node node-yellow" data-road-id="game" style="left:2250px;top:1260px"><div class="node-kicker">26 · GAME</div><strong>博弈论</strong><span>必胜态 · Nim · SG 函数</span></div>
-
-        <div class="road-node node-deep" data-road-id="advancedalgo" style="left:700px;top:1510px"><div class="node-kicker">27 · ADVANCED</div><strong>高级算法</strong><span>分治优化 · 倍增 · 莫队 · 随机化</span></div>
-        <div class="road-node node-deep" data-road-id="contest" style="left:1250px;top:1510px"><div class="node-kicker">28 · PRACTICE</div><strong>比赛 · 补题 · 复盘</strong><span>校赛 → ICPC / CCPC → 持续训练</span></div>
-        <div class="road-node node-deep" data-road-id="special" style="left:1800px;top:1510px"><div class="node-kicker">29 · SPECIAL</div><strong>专题与综合</strong><span>计算几何 · 自动机 · 杂项专题</span></div>
+        <div class="road-node node-deep finish-node" data-road-id="contest" style="left:900px;top:920px"><div class="node-kicker">14 · PRACTICE</div><strong>比赛 · 补题 · 复盘</strong><span>校赛 → 蓝桥杯 / ICPC / CCPC → 持续训练</span></div>
       </div>
     </div>
     <div class="roadmap-legend"><span><i class="legend-dot roadmap-green"></i>语言 / 基础 / 搜索</span><span><i class="legend-dot roadmap-blue"></i>数据结构 / 图论</span><span><i class="legend-dot roadmap-purple"></i>核心算法 / DP</span><span><i class="legend-dot roadmap-yellow"></i>数学 / 字符串</span><span><i class="legend-dot roadmap-deep"></i>进阶 / 实战</span></div>
-    <div class="road-note reveal"><b>怎么看这张图：</b>从上往下不是唯一顺序。前期优先掌握 C++、STL、复杂度、枚举模拟、排序、二分、搜索和基础数据结构；之后根据题目需要交叉学习 DP、图论、数学、字符串与高级数据结构。这里按 OI Wiki 的主要知识板块扩展成了 ACM 入门视角，完整知识库仍会持续更新。 <a href="https://oi-wiki.org/" target="_blank" rel="noopener">打开 OI Wiki 知识库 ↗</a></div>
+    <div class="road-note reveal"><b>怎么看这张图：</b>从根节点开始，先掌握 C++、STL、复杂度和基础算法，再逐步进入搜索、数据结构、DP、图论、数学与字符串；最后进入高级专题与比赛训练。它是一条推荐路线，不要求一次学完。 <a href="https://oi-wiki.org/contest/roadmap/" target="_blank" rel="noopener">查看 OI Wiki ↗</a></div>
   </div>
-
   <div class="section-head reveal" style="margin-top:72px">
     <div class="eyebrow">03-B · KNOWLEDGE NETWORK</div>
     <h2>另一种看法：把算法当成一张“关系网”</h2>
@@ -418,7 +414,7 @@ footer{padding:55px 18px 75px;text-align:center;color:#75918d}
     </article>
     <article class="q-card reveal">
       <div class="q-label">OPEN 02 · ALGORITHM × AI</div>
-      <h3>2026年7月，东京，又一届总决赛，只请了12个人。七个小时，五道题。OpenAI的AI以表演身份参赛，和人类做同一套题，五道全做了出来。人类第一，是一位中国选手，做出3道。如今 AI 时代，AI 几乎能解决所有的算法竞赛题，那么人类学习算法竞赛还有意义吗？如有，有什么意义？在 AI 时代应该怎么看待算法竞赛？</h3>
+      <h3>2026年7月，东京，又一届总决赛，只请了12个人。七个小时，五道题。OpenAI的AI以表演身份参赛，和人类做同一套题，五道全做了出来。人类第一，是一位中国选手，做出3道。<br><br>如今 AI 时代，AI 几乎能解决所有的算法竞赛题，那么人类学习算法竞赛还有意义吗？如有，有什么意义？在 AI 时代应该怎么看待算法竞赛？</h3>
     </article>
     <article class="q-card reveal">
       <div class="q-label">OPEN 03 · TALENT × PASSION × DRIVE</div>
@@ -795,93 +791,55 @@ function updateFullscreenButtons(){
 document.addEventListener('fullscreenchange',updateFullscreenButtons);
 document.addEventListener('webkitfullscreenchange',updateFullscreenButtons);
 
-// ===== 第一版：学习路线图——缩放 + 鼠标拖动 + 根节点居中 =====
+// ===== 第一版：树形学习路线——缩放 + 鼠标拖动 + 根节点居中 =====
 (function(){
   const stage=document.getElementById('roadStage'), viewport=document.getElementById('roadViewport');
   if(!stage||!viewport)return;
   const svg=document.getElementById('roadLines');
   const nodes=[...stage.querySelectorAll('.road-node')];
   const edges=[
-    ['cpp','basic'],['cpp','stl'],['cpp','basicalgo'],['cpp','linear'],
-    ['basic','prefix'],['basic','twoptr'],['stl','recursion'],['stl','search'],['basicalgo','search'],['basicalgo','tree'],['linear','tree'],
-    ['search','backtrack'],['search','greedy'],['search','dp'],['tree','dsu'],['tree','graph'],
-    ['greedy','dp'],['dp','dp2'],['dp','number'],['dp','comb'],['dsu','graph'],['graph','shortest'],['graph','mst'],
-    ['mathbasic','number'],['mathbasic','comb'],['string','dp2'],['shortest','mst'],['tree','advancedtree'],['tree','treealgo'],
-    ['advancedtree','treealgo'],['treealgo','flow'],['number','poly'],['comb','poly'],['string','poly'],['game','contest'],
-    ['flow','special'],['poly','special'],['advancedtree','advancedalgo'],['dp2','advancedalgo'],['advancedalgo','contest'],['special','contest'],
-    ['number','game'],['search','contest'],['greedy','contest'],['shortest','contest'],['mst','contest'],['contest','special'],
-    ['prefix','dp'],['twoptr','greedy'],['recursion','backtrack'],['stl','mathbasic'],['basicalgo','mathbasic']
+    ['cpp','basic'],['cpp','algo'],['cpp','ds'],['cpp','math'],
+    ['basic','search'],['algo','search'],['algo','dp'],['ds','graph'],['ds','tree'],['math','string'],
+    ['dp','advanced'],['graph','advanced'],['graph','flow'],['tree','flow'],['tree','number'],['string','number'],
+    ['advanced','contest'],['flow','contest'],['number','contest'],['special','contest'],
+    ['number','special'],['string','special'],['advanced','special']
   ];
   const map={};nodes.forEach(n=>map[n.dataset.roadId]=n);
-  const center=n=>[parseFloat(n.style.left),parseFloat(n.style.top)];
-  edges.forEach(([a,b],i)=>{const A=map[a],B=map[b];if(!A||!B)return;const [x1,y1]=center(A),[x2,y2]=center(B);const dx=Math.max(70,Math.abs(x2-x1)*.35);const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('class','road-line'+(i<4?' main':''));path.setAttribute('d',`M ${x1} ${y1} C ${x1+(x2>x1?dx:-dx)} ${y1}, ${x2-(x2>x1?dx:-dx)} ${y2}, ${x2} ${y2}`);svg.appendChild(path);});
-
-  let scale=1;
-  const apply=()=>{
-    stage.style.transform=`scale(${scale})`;
-    document.getElementById('roadScale').textContent=Math.round(scale*100)+'%';
+  const pos=n=>[parseFloat(n.style.left),parseFloat(n.style.top)];
+  const edgePath=(A,B)=>{
+    const [x1,y1]=pos(A),[x2,y2]=pos(B);
+    const mid=(y1+y2)/2;
+    return `M ${x1} ${y1+38} C ${x1} ${mid}, ${x2} ${mid}, ${x2} ${y2-38}`;
   };
-
-  // 让根节点在初始状态正中央；这里直接计算滚动位置，而不是依赖浏览器默认左上角。
+  edges.forEach(([a,b])=>{
+    const A=map[a],B=map[b]; if(!A||!B)return;
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('class','road-line'); path.setAttribute('d',edgePath(A,B)); svg.appendChild(path);
+  });
+  let scale=1;
+  const apply=()=>{stage.style.transform=`scale(${scale})`;document.getElementById('roadScale').textContent=Math.round(scale*100)+'%'};
   const centerRoot=()=>{
-    const root=map.cpp;
-    if(!root)return;
-    const x=parseFloat(root.style.left)*scale;
-    const y=parseFloat(root.style.top)*scale;
+    const root=map.cpp;if(!root)return;
+    const x=parseFloat(root.style.left)*scale,y=parseFloat(root.style.top)*scale;
     viewport.scrollLeft=Math.max(0,x-viewport.clientWidth/2);
     viewport.scrollTop=Math.max(0,y-viewport.clientHeight/2);
   };
-
   document.getElementById('roadZoomIn').onclick=()=>{scale=Math.min(1.35,scale+.1);apply();centerRoot()};
-  document.getElementById('roadZoomOut').onclick=()=>{scale=Math.max(.55,scale-.1);apply();centerRoot()};
+  document.getElementById('roadZoomOut').onclick=()=>{scale=Math.max(.65,scale-.1);apply();centerRoot()};
   document.getElementById('roadZoomReset').onclick=()=>{scale=1;apply();centerRoot()};
-  document.getElementById('roadCenter').onclick=()=>{scale=1;apply();centerRoot()};
+  document.getElementById('roadCenter').onclick=()=>{centerRoot()};
   document.getElementById('roadFullscreen').onclick=()=>toggleFullscreen(document.querySelector('.roadmap-map'));
-
-  // 按住鼠标左键拖动整张学习路线图；不使用浏览器横向/纵向滚动条作为主要交互。
-  let dragging=false, moved=false, startX=0, startY=0, startLeft=0, startTop=0;
+  let dragging=false,moved=false,startX=0,startY=0,startLeft=0,startTop=0;
   viewport.addEventListener('mousedown',e=>{
-    if(e.button!==0)return;
-    if(e.target.closest('.road-node'))return;
-    dragging=true; moved=false; startX=e.clientX; startY=e.clientY;
-    startLeft=viewport.scrollLeft; startTop=viewport.scrollTop;
-    viewport.classList.add('dragging');
-    stage.classList.add('dragging');
-    e.preventDefault();
+    if(e.button!==0 || e.target.closest('.road-node'))return;
+    dragging=true;moved=false;startX=e.clientX;startY=e.clientY;startLeft=viewport.scrollLeft;startTop=viewport.scrollTop;
+    viewport.classList.add('dragging');stage.classList.add('dragging');e.preventDefault();
   });
-  window.addEventListener('mousemove',e=>{
-    if(!dragging)return;
-    const dx=e.clientX-startX, dy=e.clientY-startY;
-    if(Math.abs(dx)+Math.abs(dy)>3)moved=true;
-    viewport.scrollLeft=startLeft-dx;
-    viewport.scrollTop=startTop-dy;
-  });
-  window.addEventListener('mouseup',()=>{
-    if(!dragging)return;
-    dragging=false; viewport.classList.remove('dragging'); stage.classList.remove('dragging');
-  });
-  viewport.addEventListener('mouseleave',()=>{
-    if(!dragging)return;
-  });
-  viewport.addEventListener('wheel',e=>{
-    // 普通滚轮仍可纵向浏览；按住 Ctrl 时进行缩放。
-    if(e.ctrlKey){
-      e.preventDefault();
-      const old=scale;
-      scale=Math.max(.55,Math.min(1.35,scale+(e.deltaY<0?.08:-.08)));
-      if(scale!==old)apply();
-    }
-  },{passive:false});
-
-  nodes.forEach(n=>n.addEventListener('click',()=>{
-    if(moved)return;
-    n.animate([{transform:'translate(-50%,-50%) scale(1)'},{transform:'translate(-50%,-50%) scale(1.06)'},{transform:'translate(-50%,-50%) scale(1)'}],{duration:280});
-  }));
-
-  apply();
-  // 等布局完成后再居中，确保 viewport.clientWidth/clientHeight 已经是最终尺寸。
-  requestAnimationFrame(()=>requestAnimationFrame(centerRoot));
-  window.addEventListener('resize',()=>centerRoot());
+  window.addEventListener('mousemove',e=>{if(!dragging)return;const dx=e.clientX-startX,dy=e.clientY-startY;if(Math.abs(dx)+Math.abs(dy)>3)moved=true;viewport.scrollLeft=startLeft-dx;viewport.scrollTop=startTop-dy});
+  window.addEventListener('mouseup',()=>{dragging=false;viewport.classList.remove('dragging');stage.classList.remove('dragging')});
+  viewport.addEventListener('wheel',e=>{if(e.ctrlKey){e.preventDefault();scale=Math.max(.65,Math.min(1.35,scale+(e.deltaY<0?.08:-.08)));apply()}},{passive:false});
+  nodes.forEach(n=>n.addEventListener('click',()=>{if(moved)return;n.animate([{transform:'translate(-50%,-50%) scale(1)'},{transform:'translate(-50%,-50%) scale(1.05)'},{transform:'translate(-50%,-50%) scale(1)'}],{duration:240})}));
+  apply(); requestAnimationFrame(()=>requestAnimationFrame(centerRoot)); window.addEventListener('resize',centerRoot);
 })();
 
 // ===== 第二版：人际关系网式算法知识图 =====
